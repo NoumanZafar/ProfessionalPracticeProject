@@ -60,7 +60,7 @@ INSERT INTO DIRECTOR (DIRECTOR_ID,DIRFNAME,DIRSNAME) VALUES
 (5,'David','Fincher'),
 (6,'Brad','Bird'),
 (7,'Guy','Ritchie'),
-(8,'Mike','Mitchell')
+(8,'Mike','Mitchell'),
 (9,'David','Fincher');
 
 INSERT INTO MOVIE (MOVIE_ID,MOVIE_TITLE,MOVIE_DESC,MOVIE_IMG,TRAILER,YEAROFRELEASE,LIKES,DIRECTOR_ID) VALUES 
