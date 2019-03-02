@@ -1,0 +1,40 @@
+<mat-toolbar color= "warn">Add Movie</mat-toolbar>
+<mat-card class="mat-card-pos">
+  <form (submit)="onAddMovie(movieForm)" #movieform="ngForm">
+
+    <mat-form-field>
+    <input matInput type="text" name="MOVIE_ID" ngModel required maxlength="3" #MOVIE_ID="ngModel" 
+    placeholder="Movie ID">
+    <mat-error *ngIf= "MOVIE_ID.invalid">Please enter a valid Movie Id</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+      <input matInput rows="2" name="MOVIE_TITLE" ngModel required #content="ngModel" placeholder="Movie Name">
+      <mat-error *ngIf= "content.invalid">Please enter the Movie Name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput rows="2" name="MOVIE_DESC" ngModel required #content="ngModel" placeholder="Movie Description">
+      <mat-error *ngIf= "content.invalid">Please enter a Description</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="url" name="MOVIE_IMG" ngModel required #content="ngModel" placeholder="Movie Image">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="url" name="Trailer" ngModel required #content="ngModel" placeholder="Movie Trailer">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="date" name="date" ngModel required #content="ngModel" placeholder="YEAR OF RELEASE">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="text" name="Director ID" ngModel required #content="ngModel" placeholder="Director_id">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Submit</button>
+
+  </form>
+</mat-card>

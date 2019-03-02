@@ -1,0 +1,11 @@
+mat-form-field,
+textarea{
+    width: 100%;
+}
+.mat-card-pos{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50%;
+    border-style: inset;
+
+}

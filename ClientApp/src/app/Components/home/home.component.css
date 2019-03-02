@@ -1,0 +1,29 @@
+.background{
+  background-color: lightslategray;
+  background-size: cover;
+}
+.img {
+    width: 100%;
+    margin-bottom: 18%;
+  }
+  .card-picture {
+    background-color: rgba(119, 136, 153,50);
+    width: 23%;
+    margin-bottom: 2%;
+   
+
+  }
+  .container {
+    min-height: 100%;
+    width: 100%;
+  }
+  .search-form {
+    width: 100%;
+  }
+  .toolbar-icon {
+    padding: 0 14px;
+  }
+  
+  .toolbar-spacer {
+    flex: 1 1 auto;
+  }

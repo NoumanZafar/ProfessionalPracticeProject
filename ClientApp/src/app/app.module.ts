@@ -1,23 +1,61 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
+import { Routes, RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
+import {HttpClientModule} from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
-import {MatFormFieldModule,MatDivider, MatToolbarModule, MatButtonModule, MatSidenavModule, MatListModule} from '@angular/material';
-import { MainNavComponent } from './main-nav/main-nav.component';
+import {MatFormFieldModule,MatInputModule, MatToolbarModule, MatButtonModule, 
+  MatCardModule,MatSidenavModule, MatListModule} from '@angular/material';
+import { MainNavComponent } from './Components/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { SearchComponent } from './Components/search/search.component';
+import { AddComponent } from './Components/add/add.component';
+import { MovieService } from './Services/movie.service';
+import { FormsModule} from '@angular/forms';
+import { AddActorComponent } from './Components/add-actor/add-actor.component';
+import { ActorService } from './Services/actor.service';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { HomeComponent } from './Components/home/home.component';
 
+//Routing for the Component paths.
+const appRoutes: Routes =[
+  {
+    path: 'search',
+    component: SearchComponent
+  },
+  {
+  path: 'add',
+  component: AddComponent
+  },
+  {
+    path: 'addActor',
+    component: AddActorComponent
+  },
+  {
+    //Change path when to homepage when done
+    path: 'home',
+    component: HomeComponent
+  }
+
+  ///////More Routes Here///////
+]
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainNavComponent
+    MainNavComponent,
+    SearchComponent,
+    AddComponent,
+    AddActorComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    HttpClientModule,
     MatIconModule,
     MatFormFieldModule,
     LayoutModule,
@@ -25,10 +63,15 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
-    //MatDivider
+    MatInputModule,
+    RouterModule.forRoot(appRoutes),
+    //MatDivider,
+    FormsModule,
+    MatCardModule,
+    FlexLayoutModule
     
   ],
-  providers: [],
+  providers: [MovieService,ActorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
