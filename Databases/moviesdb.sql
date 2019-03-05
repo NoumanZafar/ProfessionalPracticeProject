@@ -65,16 +65,16 @@ INSERT INTO DIRECTOR (DIRECTOR_ID,DIRFNAME,DIRSNAME) VALUES
 
 INSERT INTO MOVIE (MOVIE_ID,MOVIE_TITLE,MOVIE_DESC,MOVIE_IMG,TRAILER,YEAROFRELEASE,LIKES,DIRECTOR_ID) VALUES 
 (1,'The BFG','An orphan human girl befriends a benevolent giant, dubbed the "Big Friendly Giant", who takes her to Giant Country, 
-where they attempt to stop the man-eating giants that are invading the human world.',LOAD_FILE(""),LOAD_FILE(""),'2016',0,1),
+where they attempt to stop the man-eating giants that are invading the human world.',LOAD_FILE("C:/posters_and_trailers/bfg.jpg"),LOAD_FILE("C:/posters_and_trailers/bfg_trailer.mp4"),'2016',0,1),
 (2,'Lincoln','The film  covers the final four months of Lincoln''s life, focusing on his efforts in January 1865 to have the Thirteenth Amendment 
-to the United States Constitution passed by the United States House of Representatives.',LOAD_FILE(""),LOAD_FILE(""),'2012',0,1),
+to the United States Constitution passed by the United States House of Representatives.',LOAD_FILE("C:/posters_and_trailers/linclon.jpg"),LOAD_FILE("C:/posters_and_trailers/linclon_trailer.mp4"),'2012',0,1),
 (3,'Memento','A man''s story who, has amnesia and short-term memory loss every five minutes. He is searching for the persons who 
 attacked him and killed his wife, using an intricate system of photographs and tattoos to track information he cannot remember.',
-LOAD_FILE(""),LOAD_FILE(""),'2000',0,2),
+LOAD_FILE("C:/posters_and_trailers/memento.jpg"),LOAD_FILE("C:/posters_and_trailers/memento_trailer.mp4"),'2000',0,2),
 (4,'The Prestige','The film story follows the two rival stage magicians in London at the end of the 19th century. Obsessed with creating the best stage illusion, 
-they engage in competitive one-upmanship with tragic results and a renowned twist ending.',LOAD_FILE(""),LOAD_FILE(""),'2006',0,2),
+they engage in competitive one-upmanship with tragic results and a renowned twist ending.',LOAD_FILE("C:/posters_and_trailers/prestige.jpg"),LOAD_FILE("C:/posters_and_trailers/prestige_trailer.mp4"),'2006',0,2),
 (5,'Ratatouille','Story of an anthropomorphic rat who is interested in cooking, who befriends with garbage boy.',
-LOAD_FILE(""),LOAD_FILE(""),'2007',0,6);
+LOAD_FILE("C:/posters_and_trailers/ratatouille.jpg"),LOAD_FILE("C:/posters_and_trailers/rat_trailer.mp4"),'2007',0,6);
 
 INSERT INTO ACTOR (ACTOR_ID,FIRST_NAME,SURNAME) VALUES 
 (1,'Mark','Rylance'),
