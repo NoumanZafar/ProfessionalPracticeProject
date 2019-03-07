@@ -1,0 +1,13 @@
+package com.company.movies.movies.movies.movie;
+
+import com.company.movies.movies.movies.movie.generated.GeneratedMovieSqlAdapter;
+
+/**
+ * The SqlAdapter for every {@link com.company.movies.movies.movies.movie.Movie}
+ * entity.
+ * <p>
+ * This file is safe to edit. It will not be overwritten by the code generator.
+ * 
+ * @author company
+ */
+public class MovieSqlAdapter extends GeneratedMovieSqlAdapter {}
