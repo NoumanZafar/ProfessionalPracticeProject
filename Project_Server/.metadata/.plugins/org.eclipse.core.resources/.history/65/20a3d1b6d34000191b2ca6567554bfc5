@@ -15,15 +15,14 @@ import com.company.movies.database.movies.actor.ActorManager;
 @RequestMapping("/test")
 public class Test {
 	private ActorManager manager;
-
+	
 	public Test(MoviesApplication app) {
-		manager = app.getOrThrow(ActorManager.class);
+		manager=app.getOrThrow(ActorManager.class);
 	}
-
+	
 	@GetMapping("data")
-	public List<Actor> getData() {
-		return manager
-				.stream()
+	public List<Actor> getData(){
+		return manager.stream()
 				.collect(Collectors.toList());
 	}
 }

@@ -22,8 +22,6 @@ public class Test {
 
 	@GetMapping("data")
 	public List<Actor> getData() {
-		return manager
-				.stream()
-				.collect(Collectors.toList());
+		return manager.stream().collect(Collectors.toList());
 	}
 }
