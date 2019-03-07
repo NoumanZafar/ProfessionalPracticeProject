@@ -1,6 +1,6 @@
-<mat-toolbar color= "warn">Add Movie</mat-toolbar>
 <mat-card class="mat-card-pos">
   <form (submit)="onAddMovie(movieForm)" #movieform="ngForm">
+      <h3 align = "center">Add Movie to Database</h3>
 
     <mat-form-field>
     <input matInput type="text" name="MOVIE_ID" ngModel required maxlength="3" #MOVIE_ID="ngModel" 
@@ -34,7 +34,7 @@
       <input matInput type="text" name="Director ID" ngModel required #content="ngModel" placeholder="Director_id">
     </mat-form-field>
 
-    <button mat-raised-button color="primary">Submit</button>
+    <button mat-raised-button color="warn">Submit</button>
 
   </form>
 </mat-card>

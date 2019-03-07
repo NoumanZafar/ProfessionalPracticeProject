@@ -6,8 +6,10 @@ import { Routes, RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
-import {MatFormFieldModule,MatInputModule, MatToolbarModule, MatButtonModule, 
-  MatCardModule,MatSidenavModule, MatListModule} from '@angular/material';
+import {MatFormFieldModule,MatInputModule, MatToolbarModule, MatButtonModule,
+  MatTableModule, MatCardModule,MatSidenavModule, MatListModule,MatPaginatorModule,
+  MatSortModule, MatProgressSpinnerModule} from '@angular/material';
+import {MatDividerModule} from '@angular/material/divider';
 import { MainNavComponent } from './Components/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { SearchComponent } from './Components/search/search.component';
@@ -18,6 +20,8 @@ import { AddActorComponent } from './Components/add-actor/add-actor.component';
 import { ActorService } from './Services/actor.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './Components/home/home.component';
+import { ViewActorsComponent } from './Components/view-actors/view-actors.component';
+
 
 //Routing for the Component paths.
 const appRoutes: Routes =[
@@ -37,7 +41,13 @@ const appRoutes: Routes =[
     //Change path when to homepage when done
     path: 'home',
     component: HomeComponent
-  }
+  },
+  {
+    //Change path when to homepage when done
+    path: 'ViewActors',
+    component: ViewActorsComponent
+  },
+  
 
   ///////More Routes Here///////
 ]
@@ -49,7 +59,8 @@ const appRoutes: Routes =[
     SearchComponent,
     AddComponent,
     AddActorComponent,
-    HomeComponent
+    HomeComponent,
+    ViewActorsComponent
   ],
   imports: [
     BrowserModule,
@@ -65,10 +76,14 @@ const appRoutes: Routes =[
     MatListModule,
     MatInputModule,
     RouterModule.forRoot(appRoutes),
-    //MatDivider,
+    MatDividerModule,
     FormsModule,
     MatCardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule
     
   ],
   providers: [MovieService,ActorService],

@@ -1,14 +1,13 @@
 .background{
-  background-color: lightslategray;
-  background-size: cover;
+  background-color: transparent;
 }
 .img {
-    width: 100%;
+    width: 80%;
     margin-bottom: 18%;
   }
   .card-picture {
-    background-color: rgba(119, 136, 153,50);
-    width: 23%;
+    background-color:transparent;
+    width: 20%;
     margin-bottom: 2%;
    
 

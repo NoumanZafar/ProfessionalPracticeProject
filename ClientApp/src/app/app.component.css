@@ -1,0 +1,23 @@
+.background{
+    background-image: url("src/assets/images/bg1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    
+}
+.sidenav-container {
+    height: 100%;
+    background-color: ghostwhite;
+  }
+  
+  .sidenav {
+    width: 200px;
+    box-shadow: 3px 0 6px rgba(0,0,0,24);
+    background-color: silver;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    font-weight: bolder;
+  }
+  
