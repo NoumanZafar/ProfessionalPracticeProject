@@ -1,0 +1,18 @@
+package com.gmit.backend;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.company.movies.MoviesApplication;
+import com.company.movies.MoviesApplicationBuilder;
+
+@Configuration
+public class DatabaseSetup {
+	@Bean
+	public MoviesApplication createConnection() {
+		return new MoviesApplicationBuilder()
+				.withUsername("nouman")
+				.withPassword("nouman")
+				.build();
+	}
+}

@@ -1,0 +1,33 @@
+package com.gmit.backend;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+
+import com.company.movies.MoviesApplication;
+import com.company.movies.MoviesApplicationBuilder;
+
+/**
+ * 
+ * @author Nouman Zafar
+ * @version 1.0
+ * @since 1.8
+ * @see Future
+ *
+ */
+@Configuration
+public class DatabaseSetup {
+	@Bean
+	public MoviesApplication createConnection() {
+		return new MoviesApplicationBuilder()
+				.withUsername("nouman")
+				.withPassword("nouman")
+				.build();
+	}
+	
+	@Bean
+	public Jackson2ObjectMapperBuilder jacksonBuilder() {
+		return new Jackson2ObjectMapperBuilder()
+				.indentOutput(true);
+	}
+}
