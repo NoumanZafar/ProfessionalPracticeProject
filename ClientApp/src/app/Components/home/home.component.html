@@ -1,15 +1,17 @@
 <mat-toolbar color="warn" >
-        <span>Movie Database</span>
         <span class = "toolbar-spacer"></span>
+        <input matInput placeholder="Search" type="text">
+        <button mat-icon-button>
         <mat-icon class = "toolbar-icon">search</mat-icon>
+      </button>
 </mat-toolbar>
   <br>
   
   <div class="background" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
     <mat-card class="card-picture" *ngFor="let picture of pictures">
       <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
-        <span fxFlex="80%">{{picture.title}}</span>
-        <mat-icon fxFlex="10%">mode_edit</mat-icon>
+        <span fxFlex="90%">{{picture.title}}</span>   
+        <button mat-mini-fab color="warn"><mat-icon >add_circle</mat-icon></button>    
       </mat-card-title>
       <img mat-card-image [src]="picture.img">
     </mat-card>
