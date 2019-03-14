@@ -5,7 +5,6 @@ export interface Movie{
     MOVIE_IMG: Blob;
     TRAILER: Blob;
     YEAROFRELEASE: Date;
-    LIKES: Number;
     DIRECTOR_ID: number;
 
 }

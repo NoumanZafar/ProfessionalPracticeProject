@@ -1,3 +1,14 @@
-table {
-    width: 100%;
+.table {
+  width: 50%;
+  border: 5px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+  background-color: rgba(128,128,128, .5);
+  text-align: center;
+  color: silver;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: steelblue;
+  
+    
   }

@@ -10,16 +10,18 @@ import { Observable } from 'rxjs';
 })
 export class ActorService {
    private actors: Actor[] =[];
-
+  
   constructor(private http: HttpClient) { }
+  
   //Testing functionality of table with hardcoded json before trying database
  
 
   getActorsDetails(): Observable<any> {
-    return this.http.get("https://jsonblob.com/725492f6-40c9-11e9-a8cb-7fc5761c93b1");
-}
+  return this.http.get("https://jsonblob.com/480fc466-4378-11e9-a39b-e90caae17eb2",{responseType: 'text'});
+  }
  // getActors() {
-  //  return [...this.actors];
+ //   return [...this.actors];
+ // }
 
  // }
 /*addActor(ACTOR_ID : number,FIRST_NAME: string,SURNAME: string ):Observable<any>{
