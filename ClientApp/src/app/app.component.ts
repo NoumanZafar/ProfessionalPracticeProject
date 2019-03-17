@@ -12,12 +12,4 @@ import { map } from 'rxjs/operators';
 export class AppComponent {
   title = 'Movie Database';
 
-  
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-  .pipe(
-    map(result => result.matches)
-  );
-
-constructor(private breakpointObserver: BreakpointObserver) {}
-
 }

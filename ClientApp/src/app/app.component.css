@@ -1,6 +1,12 @@
 .toolbar{
   background-color: rgba(3, 130, 233, 0.5);
   font-weight: bolder;
+  background-image: url("src/assets/images/mdb.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+  .toolbar-spacer {
+    flex: 1 1 auto;
   
 }
 .background{
