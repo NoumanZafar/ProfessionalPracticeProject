@@ -1,0 +1,27 @@
+package com.gmit.backend;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.company.movies.MoviesApplication;
+import com.company.movies.database.movies.movie.MovieManager;
+
+@RestController
+@RequestMapping("/movies")
+public class Movie_Table {
+	private MovieManager movie;
+
+	public Movie_Table(MoviesApplication application) {
+		movie = application.getOrThrow(MovieManager.class);
+	}
+
+	@RequestMapping(value = "list", method = RequestMethod.GET)
+	public List<Movie> getMovies() {
+		return movie.stream()
+					.collect(Collectors.toList());
+	}
+}
