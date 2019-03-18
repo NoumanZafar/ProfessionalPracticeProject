@@ -48,7 +48,6 @@ public class Movies {
 	 */
 	@RequestMapping(value = "list", method = RequestMethod.GET)
 	public List<Movie> getMovies() {
-		return movie.stream()
-					.collect(Collectors.toList());
+		return movie.stream().collect(Collectors.toList());
 	}
 }

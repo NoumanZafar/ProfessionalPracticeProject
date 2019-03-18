@@ -41,14 +41,12 @@ public class Movies {
 	/**
 	 * This is the method which return the JSON data of the movies table. This
 	 * method produce and accept only HTTP GET request where the mapping is
-	 * movies/list. Binary data is converted into Byte[] and passed into the JSON
-	 * array of data.
+	 * movies/list.
 	 * 
 	 * @return JSON data of the movies table.
 	 */
 	@RequestMapping(value = "list", method = RequestMethod.GET)
 	public List<Movie> getMovies() {
-		return movie.stream()
-					.collect(Collectors.toList());
+		return movie.stream().collect(Collectors.toList());
 	}
 }

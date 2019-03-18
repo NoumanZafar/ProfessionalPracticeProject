@@ -1763,3 +1763,15 @@ Caused by: java.lang.NullPointerException
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
 	... 64 more
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-03-18 13:19:53.788
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.ANKgehSq
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-03-18 13:19:53.803
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.ANKgehSq
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-03-18 13:19:53.819
+!MESSAGE subsribers = null
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-03-18 13:19:53.819
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.ANKgehSq => OK

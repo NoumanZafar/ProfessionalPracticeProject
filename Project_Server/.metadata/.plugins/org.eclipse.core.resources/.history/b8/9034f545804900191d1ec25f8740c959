@@ -17,8 +17,6 @@ import com.company.movies.database.movies.movie.MovieManager;
  * data.
  * 
  * @author Nouman
- * @version 1.0
- * @since 1.8
  *
  */
 @RestController
@@ -41,8 +39,7 @@ public class Movies {
 	/**
 	 * This is the method which return the JSON data of the movies table. This
 	 * method produce and accept only HTTP GET request where the mapping is
-	 * movies/list. Binary data is converted into Byte[] and passed into the JSON
-	 * array of data.
+	 * movies/list.
 	 * 
 	 * @return JSON data of the movies table.
 	 */
