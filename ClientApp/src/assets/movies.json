@@ -1,0 +1,22 @@
+{
+  "movies": [
+    {
+      "movie_id": 1,
+      "movie_title": "The BFG",
+      "movie_desc": "An orphan human girl befriends a benevolent giant,dubbed the Big Friendly Giant, who takes her to Giant Country, where they attempt to stop the man-eating giants that are invading the human world.",
+      "movie_img": "bfg.jpg",
+      "trailer": "bfg_trailer.mp4",
+      "year": "2012",
+      "director_id": "101"
+    },
+    {
+      "movie_id": 2,
+      "movie_title": "Lincoln",
+      "movie_desc": "The film covers the final four months of Lincolns life focusing on his efforts in January 1865 to have the Thirteenth Amendment to the United States Constitution passed by the United States House of Representatives. ",
+      "movie_img": "lincoln.jpg",
+      "trailer": "lincoln_trailer.mp4",
+      "year": "2016",
+      "director_id": "102"
+    }
+  ]
+}

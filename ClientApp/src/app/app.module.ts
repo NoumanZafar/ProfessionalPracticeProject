@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule,MatInputModule, MatToolbarModule, MatButtonModule,
   MatTableModule, MatCardModule,MatSidenavModule, MatListModule,MatPaginatorModule,
-  MatSortModule, MatProgressSpinnerModule,MatExpansionModule} from '@angular/material';
+  MatSortModule, MatProgressSpinnerModule,MatExpansionModule,MatMenuModule} from '@angular/material';
 import {MatDividerModule} from '@angular/material/divider'
 import { LayoutModule } from '@angular/cdk/layout';
 import { SearchComponent } from './Components/search/search.component';
@@ -21,7 +21,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './Components/home/home.component';
 import { ViewActorsComponent } from './Components/view-actors/view-actors.component';
 import { ViewMoviesComponent } from './Components/view-movies/view-movies.component';
-
+import { MatVideoModule } from 'mat-video';
 
 //Routing for the Component paths.
 const appRoutes: Routes =[
@@ -89,7 +89,9 @@ const appRoutes: Routes =[
     MatSortModule,
     MatProgressSpinnerModule,
     HttpClientModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatMenuModule,
+    MatVideoModule
     
   ],
   providers: [MovieService,ActorService],

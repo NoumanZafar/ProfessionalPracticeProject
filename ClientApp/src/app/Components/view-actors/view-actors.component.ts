@@ -10,18 +10,17 @@ import { Observable} from 'rxjs';
   styleUrls: ['./view-actors.component.css']
 })
 export class ViewActorsComponent implements OnInit {
-  actors: any[];
+  actors: any = [];
 
   constructor(private service: ActorService) { }
 
+  /*Hardcoded json being called from jsonblob(see actorservice)*/
   ngOnInit() {
-    
-   this.service.getActorsDetails().subscribe(data => 
+   this.service.getActorsData().subscribe(data => 
     {
       this.actors = data.actors;
-      console.log("in view actors comp..." + this.actors );
-
-    
+      console.log("In actors component "+ data.actors); 
+     
 });
   }
 

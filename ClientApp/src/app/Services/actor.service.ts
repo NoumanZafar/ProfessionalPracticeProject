@@ -3,25 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import { Actor} from '../Models/actor.model';
 import { Observable } from 'rxjs';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class ActorService {
-   private actors: Actor[] =[];
   
   constructor(private http: HttpClient) { }
   
   //Testing functionality of table with hardcoded json before trying database
- 
-
-  getActorsDetails(): Observable<any> {
-  return this.http.get("https://jsonblob.com/480fc466-4378-11e9-a39b-e90caae17eb2",{responseType: 'text'});
-  }
- // getActors() {
- //   return [...this.actors];
- // }
+  getActorsData(): Observable<any> {
+  return this.http.get('https://jsonblob.com/api/480fc466-4378-11e9-a39b-e90caae17eb2');
+ }
 
  // }
 /*addActor(ACTOR_ID : number,FIRST_NAME: string,SURNAME: string ):Observable<any>{

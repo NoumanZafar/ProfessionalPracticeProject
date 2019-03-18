@@ -1,3 +1,29 @@
-<p>
-  view-movies works!
-</p>
+<table class="table">
+    <thead>
+      <tr>
+        <td>Movie ID</td>
+        <td>Movie Title</td>
+        <td>Movie Description</td>
+        <td>Movie image</td>
+        <td>Trailer</td>
+        <td>Year</td>
+        <td>Director ID</td>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor = 'let movie of movies'>
+        <td>{{movie.movie_id}}</td>
+        <td>{{movie.movie_title}}</td>
+        <td>{{movie.movie_desc}}</td>
+        <td>
+          <img src="../../../assets/images/{{movie.movie_img}}"width="100" height =70>        
+        </td>
+        <td>
+          <mat-video [autoplay]="false" [preload]="true" [fullscreen]="false"src = "../../../assets/videos/{{movie.trailer}}" ></mat-video></td>
+        <td>{{movie.year}}</td>
+        <td>{{movie.director_id}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
