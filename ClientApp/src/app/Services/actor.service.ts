@@ -12,12 +12,13 @@ export class ActorService {
   
   //Testing functionality of table with hardcoded json before trying database
   getActorsData(): Observable<any> {
-  return this.http.get('https://jsonblob.com/api/480fc466-4378-11e9-a39b-e90caae17eb2');
+
+    return this.http.get('https://jsonblob.com/api/480fc466-4378-11e9-a39b-e90caae17eb2');
  }
 
  // }
 /*addActor(ACTOR_ID : number,FIRST_NAME: string,SURNAME: string ):Observable<any>{
   const actor: Actor={ACTOR_ID: ACTOR_ID, FIRST_NAME:FIRST_NAME,SURNAME:SURNAME};
-  return this.http.post("http://localhost:8081/api/actors",actor);
+  return this.http.post("http://localhost:8080/api/actors",actor);
 }*/
 }
