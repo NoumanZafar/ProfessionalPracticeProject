@@ -16,7 +16,7 @@ export class ViewMoviesComponent implements OnInit {
     this.service.getMovieData().subscribe(data => 
       {
         this.movies = data.movies;
-        console.log("In movies component "+ data.movies); 
+        console.log("In movies component "+ this.movies); 
        
   });
   }
