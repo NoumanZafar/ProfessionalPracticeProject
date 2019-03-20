@@ -10,19 +10,30 @@
         <td>Director ID</td>
       </tr>
     </thead>
-  
+  <!-- Movies data is comming from database on cloud -->
+  <!-- 
+    column names are bit different as they are stored in the database. If having dificulty, please print the json array
+    in component in the console to see the column names of the data. for example id of the movie is stored in database as movie_id but
+    when same is being read here should read as movieId tahre is no _ (symbol) in json data. 
+  -->
     <tbody>
       <tr *ngFor = 'let movie of movies'>
-        <td>{{movie.movie_id}}</td>
-        <td>{{movie.movie_title}}</td>
-        <td>{{movie.movie_desc}}</td>
+        <td>{{movie.movieId}}</td>
+        <td>{{movie.movieTitle}}</td>
+        <td>{{movie.movieDesc}}</td>
         <td>
-          <img src="../../../assets/images/{{movie.movie_img}}"width="100" height =70>        
+          <!--Image is taken as byte array and change to base64 and then a image is displayed.-->
+          <img [src]="'data:image/JPEG;base64,' + movie.movieImg" width="200" height="300" />      
         </td>
         <td>
-          <mat-video [autoplay]="false" [preload]="true" [fullscreen]="false"src = "../../../assets/videos/{{movie.trailer}}" ></mat-video></td>
-        <td>{{movie.year}}</td>
-        <td>{{movie.director_id}}</td>
+          <!--Byte array to base64 and then video is onverted in mp4 to play and display on the page.-->
+          <mat-video width="200" height="300" controls>
+              <source [src]="'data:video/mp4;base64,'+movie.trailer">
+          </mat-video>
+        </td>
+
+        <td>{{movie.yearofrelease}}</td>
+        <td>{{movie.directorId}}</td>
       </tr>
     </tbody>
   </table>

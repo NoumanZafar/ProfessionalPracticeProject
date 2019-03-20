@@ -7,18 +7,15 @@ import { MovieService} from '../../Services/movie.service';
   styleUrls: ['./view-movies.component.css']
 })
 export class ViewMoviesComponent implements OnInit {
-  movies: any = [];
-
+  movies:Array<any>;
   constructor(private service: MovieService) { }
 
   //Reading from hardcoded json file(src\assets\movies.json)
   ngOnInit() {
-    this.service.getMovieData().subscribe(data => 
-      {
-        this.movies = data.movies;
-        console.log("In movies component "+ this.movies); 
-       
-  });
+    //made changes here this.movies is an array which takes the whole json data not individual column.
+    //so whenever json is being read, read the whole array and store it in the array created here (movies)
+    this.service.getMovieData().subscribe(data=>{
+      this.movies=data;
+    })
   }
-
 }
