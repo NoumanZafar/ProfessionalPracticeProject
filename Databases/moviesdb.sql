@@ -8,6 +8,7 @@ CREATE TABLE DIRECTOR(
 DIRECTOR_ID VARCHAR(6),
 DIRFNAME VARCHAR(25) NOT NULL,
 DIRSNAME VARCHAR(35) NOT NULL,
+PICTURE LONGBLOB DEFAULT NULL,
 PRIMARY KEY(DIRECTOR_ID))ENGINE=INNODB;
 
 DROP TABLE IF EXISTS MOVIE;
@@ -27,6 +28,7 @@ CREATE TABLE ACTOR(
 ACTOR_ID VARCHAR(6),
 FIRST_NAME VARCHAR(25),
 SURNAME VARCHAR(35),
+PICTURE LONGBLOB DEFAULT NULL,
 PRIMARY KEY(ACTOR_ID))ENGINE=INNODB;
 
 DROP TABLE IF EXISTS MOVIE_ACTOR;
@@ -51,16 +53,15 @@ FOREIGN KEY (MOVIE_ID) REFERENCES MOVIE(MOVIE_ID) ON DELETE CASCADE ON UPDATE CA
 FOREIGN KEY (GENRE_ID) REFERENCES GENRE(GENRE_ID) ON DELETE CASCADE ON UPDATE CASCADE,
 PRIMARY KEY (MOVIE_ID, GENRE_ID))ENGINE=INNODB;
 
-INSERT INTO DIRECTOR (DIRECTOR_ID,DIRFNAME,DIRSNAME) VALUES 
-('1','Steven','Spielberg'),
-('2','Christopher','Nolan'),
-('3','Martin','Scorsese'),
-('4','James','Cameron'),
-('5','David','Fincher'),
-('6','Brad','Bird'),
-('7','Guy','Ritchie'),
-('8','Mike','Mitchell'),
-('9','David','Fincher');
+INSERT INTO DIRECTOR (DIRECTOR_ID,DIRFNAME,DIRSNAME,PICTURE) VALUES 
+('1','Steven','Spielberg',LOAD_FILE("C:/directors/StevenSpielberg.jpg")),
+('2','Christopher','Nolan',LOAD_FILE("C:/directors/christopher.jpg")),
+('3','Martin','Scorsese',LOAD_FILE("C:/directors/martin.jpg")),
+('4','James','Cameron',LOAD_FILE("C:/directors/jamesCameron.jpg")),
+('5','David','Fincher',LOAD_FILE("C:/directors/davidFincher.jpg")),
+('6','Brad','Bird',LOAD_FILE("C:/directors/bradBird.jpg")),
+('7','Guy','Ritchie',LOAD_FILE("C:/directors/guy.jpg")),
+('8','Mike','Mitchell',LOAD_FILE("C:/directors/mike.jpg"));
 
 INSERT INTO MOVIE (MOVIE_ID,MOVIE_TITLE,MOVIE_DESC,MOVIE_IMG,TRAILER,YEAROFRELEASE,DIRECTOR_ID) VALUES 
 ('1','The BFG','An orphan human girl befriends a benevolent giant, dubbed the "Big Friendly Giant", who takes her to Giant Country, 
@@ -75,44 +76,44 @@ they engage in competitive one-upmanship with tragic results and a renowned twis
 ('5','Ratatouille','Story of an anthropomorphic rat who is interested in cooking, who befriends with garbage boy.',
 LOAD_FILE("C:/posters_and_trailers/ratatouille.jpg"),LOAD_FILE("C:/posters_and_trailers/rat_trailer.mp4"),'2007',6);
 
-INSERT INTO ACTOR (ACTOR_ID,FIRST_NAME,SURNAME) VALUES 
-('1','Mark','Rylance'),
-('2','Ruby','Barnhill'),
-('3','Penelope','Wilton'),
-('4','Jemaine','Clement'),
-('5','Rebecca','Hall'),
-('6','Rafe','Spall'),
-('7','Bill','Hader'),
+INSERT INTO ACTOR (ACTOR_ID,FIRST_NAME,SURNAME,PICTURE) VALUES 
+('1','Mark','Rylance',LOAD_FILE("C:/actors/markRyalance.jpg")),
+('2','Ruby','Barnhill',LOAD_FILE("C:/actors/RubyBarnhill.jpg")),
+('3','Penelope','Wilton',LOAD_FILE("C:/actors/penelopeWilton.jpg")),
+('4','Jemaine','Clement',LOAD_FILE("C:/actors/JemainClement.jpg")),
+('5','Rebecca','Hall',LOAD_FILE("C:/actors/RebeccaHall.jpg")),
+('6','Rafe','Spall',LOAD_FILE("C:/actors/RafeSpall.jpg")),
+('7','Bill','Hader',LOAD_FILE("C:/actors/BillHader.jpg")),
 
-('8','Daniel','Day-Lewis'),
-('9','Sally','Field'),
-('10','David','Strathaim'),
-('11','Joseph','Gordon-Levitt'),
-('12','James','Spader'),
-('13','Hal','Holbrook'),
-('14','Tommy-Lee','Jones'),
+('8','Daniel','Day-Lewis',LOAD_FILE("C:/actors/danielDayLewis.jpg")),
+('9','Sally','Field',LOAD_FILE("C:/actors/SallyField.jpg")),
+('10','David','Strathaim',LOAD_FILE("C:/actors/DavidStrathaim.jpg")),
+('11','Joseph','Gordon-Levitt',LOAD_FILE("C:/actors/JosephGordonLevitt.jpg")),
+('12','James','Spader',LOAD_FILE("C:/actors/JamesSpader.jpg")),
+('13','Hal','Holbrook',LOAD_FILE("C:/actors/HalHolbrook.jpg")),
+('14','Tommy-Lee','Jones',LOAD_FILE("C:/actors/tommyleejones.jpg")),
 
-('15','Guy','Pearce'),
-('16','Carrie-Anne','Moss'),
-('17','Joe','Pantoliano'),
+('15','Guy','Pearce',LOAD_FILE("C:/actors/GuyPearce.jpg")),
+('16','Carrie-Anne','Moss',LOAD_FILE("C:/actors/CarrieAnneMoss.jpg")),
+('17','Joe','Pantoliano',LOAD_FILE("C:/actors/JoePantoliano.jpg")),
 
-('18','Hugh','Jackman'),
-('19','Christian','Bale'),
-('20','Michael','Caine'),
-('21','Scarlett','Johansson'),
-('22','Rebecca','Hall'),
-('23','Andy','Serkis'),
-('24','David','Bowie'),
+('18','Hugh','Jackman',LOAD_FILE("C:/actors/hughjackman.jpg")),
+('19','Christian','Bale',LOAD_FILE("C:/actors/christianbale.jpg")),
+('20','Michael','Caine',LOAD_FILE("C:/actors/MichaelCaine.jpg")),
+('21','Scarlett','Johansson',LOAD_FILE("C:/actors/ScarlettJohansson.jpg")),
+('22','Brie','Larson',LOAD_FILE("C:/actors/brielarson.jpg")),
+('23','Andy','Serkis',LOAD_FILE("C:/actors/andyserkis.jpg")),
+('24','David','Bowie',LOAD_FILE("C:/actors/DavidBowie.jpg")),
 
-('25','Patton','Oswalt'),
-('26','Ian','Holm'),
-('27','Lou','Romano'),
-('28','Janeane','Garofalo'),
-('29','Peter','O''Tool'),
-('30','Brad','Garrett'),
-('31','Brian','Dennehy'),
-('32','Peter','Sohn'),
-('33','Will','Arnett');
+('25','Patton','Oswalt',LOAD_FILE("C:/actors/PattonOswalt.jpg")),
+('26','Ian','Holm',LOAD_FILE("C:/actors/IanHolm.jpg")),
+('27','Lou','Romano',LOAD_FILE("C:/actors/LouRomano.jpg")),
+('28','Janeane','Garofalo',LOAD_FILE("C:/actors/JaneaneGarofalo.jpg")),
+('29','Peter','O''Tool',LOAD_FILE("C:/actors/PeterOToole.jpg")),
+('30','Brad','Garrett',LOAD_FILE("C:/actors/BradGarrett.jpg")),
+('31','Brian','Dennehy',LOAD_FILE("C:/actors/BrianDennehy.jpg")),
+('32','Peter','Sohn',LOAD_FILE("C:/actors/PeterSohn.jpg")),
+('33','Will','Arnett',LOAD_FILE("C:/actors/WillArnett.jpg"));
 
 INSERT INTO MOVIE_ACTOR (ACTOR_ID,MOVIE_ID) VALUES 
 ('1','1'),('2','1'),('3','1'),('4','1'),('5','1'),('6','1'),('7','1'),
