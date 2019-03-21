@@ -1,19 +1,11 @@
-<mat-toolbar color="warn" >
-        <span class = "toolbar-spacer"></span>
-        <input matInput placeholder="Search" type="text">
-        <button mat-icon-button>
-        <mat-icon class = "toolbar-icon">search</mat-icon>
-      </button>
-</mat-toolbar>
-  <br>
-  
-  <div class="background" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
-    <mat-card class="card-picture" *ngFor="let picture of pictures">
+ <div class="background" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">   
+  <mat-card class="card-picture" *ngFor="let movie of movies">
       <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
-        <span fxFlex="90%">{{picture.title}}</span>   
-        <button mat-mini-fab color="warn"><mat-icon >add_circle</mat-icon></button>    
+      <span fxFlex="90%">{{movie.movieTitle}}</span>
+      <mat-icon fxFlex="10%">videocam</mat-icon>
       </mat-card-title>
-      <img mat-card-image [src]="picture.img">
+      <img mat-card-image [src]="'data:image/JPEG;base64,' + movie.movieImg"/>
+      <h5>{{movie.movieDesc}}</h5> 
     </mat-card>
   </div>
 
