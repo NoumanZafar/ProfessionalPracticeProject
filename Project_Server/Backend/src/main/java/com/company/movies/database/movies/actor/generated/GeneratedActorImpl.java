@@ -22,6 +22,7 @@ public abstract class GeneratedActorImpl implements Actor {
     private String actorId;
     private String firstName;
     private String surname;
+    private byte[] picture;
     
     protected GeneratedActorImpl() {
         
@@ -43,6 +44,11 @@ public abstract class GeneratedActorImpl implements Actor {
     }
     
     @Override
+    public Optional<byte[]> getPicture() {
+        return Optional.ofNullable(picture);
+    }
+    
+    @Override
     public Actor setActorId(String actorId) {
         this.actorId = actorId;
         return this;
@@ -61,11 +67,18 @@ public abstract class GeneratedActorImpl implements Actor {
     }
     
     @Override
+    public Actor setPicture(byte[] picture) {
+        this.picture = picture;
+        return this;
+    }
+    
+    @Override
     public String toString() {
         final StringJoiner sj = new StringJoiner(", ", "{ ", " }");
         sj.add("actorId = "   + Objects.toString(getActorId()));
         sj.add("firstName = " + Objects.toString(OptionalUtil.unwrap(getFirstName())));
         sj.add("surname = "   + Objects.toString(OptionalUtil.unwrap(getSurname())));
+        sj.add("picture = "   + Objects.toString(OptionalUtil.unwrap(getPicture())));
         return "ActorImpl " + sj.toString();
     }
     
@@ -77,6 +90,7 @@ public abstract class GeneratedActorImpl implements Actor {
         if (!Objects.equals(this.getActorId(), thatActor.getActorId())) {return false; }
         if (!Objects.equals(this.getFirstName(), thatActor.getFirstName())) {return false; }
         if (!Objects.equals(this.getSurname(), thatActor.getSurname())) {return false; }
+        if (!Objects.equals(this.getPicture(), thatActor.getPicture())) {return false; }
         return true;
     }
     
@@ -86,6 +100,7 @@ public abstract class GeneratedActorImpl implements Actor {
         hash = 31 * hash + Objects.hashCode(getActorId());
         hash = 31 * hash + Objects.hashCode(getFirstName());
         hash = 31 * hash + Objects.hashCode(getSurname());
+        hash = 31 * hash + Objects.hashCode(getPicture());
         return hash;
     }
 }

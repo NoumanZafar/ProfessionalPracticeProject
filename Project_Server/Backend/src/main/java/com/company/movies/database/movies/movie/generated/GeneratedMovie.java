@@ -13,11 +13,9 @@ import com.speedment.runtime.field.StringField;
 import com.speedment.runtime.field.StringForeignKeyField;
 import com.speedment.runtime.typemapper.TypeMapper;
 import com.speedment.runtime.typemapper.largeobject.BlobToByteArrayMapper;
-import com.speedment.runtime.typemapper.time.DateToIntMapper;
 import java.sql.Blob;
 import java.sql.Date;
 import java.util.Optional;
-import java.util.OptionalInt;
 
 /**
  * The generated base for the {@link
@@ -91,11 +89,11 @@ public interface GeneratedMovie {
      * This Field corresponds to the {@link Movie} field that can be obtained
      * using the {@link Movie#getYearofrelease()} method.
      */
-    ComparableField<Movie, Date, Integer> YEAROFRELEASE = ComparableField.create(
+    ComparableField<Movie, Date, Date> YEAROFRELEASE = ComparableField.create(
         Identifier.YEAROFRELEASE,
         o -> OptionalUtil.unwrap(o.getYearofrelease()),
         Movie::setYearofrelease,
-        new DateToIntMapper(), 
+        TypeMapper.identity(), 
         false
     );
     /**
@@ -157,7 +155,7 @@ public interface GeneratedMovie {
      * 
      * @return the yearofrelease of this Movie
      */
-    OptionalInt getYearofrelease();
+    Optional<Date> getYearofrelease();
     
     /**
      * Returns the directorId of this Movie. The directorId field corresponds to
@@ -219,7 +217,7 @@ public interface GeneratedMovie {
      * @param yearofrelease to set of this Movie
      * @return              this Movie instance
      */
-    Movie setYearofrelease(Integer yearofrelease);
+    Movie setYearofrelease(Date yearofrelease);
     
     /**
      * Sets the directorId of this Movie. The directorId field corresponds to

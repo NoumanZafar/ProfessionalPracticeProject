@@ -2,7 +2,9 @@ package com.company.movies.database.movies.director.generated;
 
 import com.company.movies.database.movies.director.Director;
 import com.speedment.common.annotation.GeneratedCode;
+import com.speedment.runtime.core.util.OptionalUtil;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.StringJoiner;
 
 /**
@@ -20,6 +22,7 @@ public abstract class GeneratedDirectorImpl implements Director {
     private String directorId;
     private String dirfname;
     private String dirsname;
+    private byte[] picture;
     
     protected GeneratedDirectorImpl() {
         
@@ -41,6 +44,11 @@ public abstract class GeneratedDirectorImpl implements Director {
     }
     
     @Override
+    public Optional<byte[]> getPicture() {
+        return Optional.ofNullable(picture);
+    }
+    
+    @Override
     public Director setDirectorId(String directorId) {
         this.directorId = directorId;
         return this;
@@ -59,11 +67,18 @@ public abstract class GeneratedDirectorImpl implements Director {
     }
     
     @Override
+    public Director setPicture(byte[] picture) {
+        this.picture = picture;
+        return this;
+    }
+    
+    @Override
     public String toString() {
         final StringJoiner sj = new StringJoiner(", ", "{ ", " }");
         sj.add("directorId = " + Objects.toString(getDirectorId()));
         sj.add("dirfname = "   + Objects.toString(getDirfname()));
         sj.add("dirsname = "   + Objects.toString(getDirsname()));
+        sj.add("picture = "    + Objects.toString(OptionalUtil.unwrap(getPicture())));
         return "DirectorImpl " + sj.toString();
     }
     
@@ -75,6 +90,7 @@ public abstract class GeneratedDirectorImpl implements Director {
         if (!Objects.equals(this.getDirectorId(), thatDirector.getDirectorId())) {return false; }
         if (!Objects.equals(this.getDirfname(), thatDirector.getDirfname())) {return false; }
         if (!Objects.equals(this.getDirsname(), thatDirector.getDirsname())) {return false; }
+        if (!Objects.equals(this.getPicture(), thatDirector.getPicture())) {return false; }
         return true;
     }
     
@@ -84,6 +100,7 @@ public abstract class GeneratedDirectorImpl implements Director {
         hash = 31 * hash + Objects.hashCode(getDirectorId());
         hash = 31 * hash + Objects.hashCode(getDirfname());
         hash = 31 * hash + Objects.hashCode(getDirsname());
+        hash = 31 * hash + Objects.hashCode(getPicture());
         return hash;
     }
 }

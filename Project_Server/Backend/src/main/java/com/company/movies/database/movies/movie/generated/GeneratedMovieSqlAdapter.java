@@ -13,7 +13,6 @@ import com.speedment.runtime.core.component.sql.SqlStreamSupplierComponent;
 import com.speedment.runtime.core.component.sql.SqlTypeMapperHelper;
 import com.speedment.runtime.core.exception.SpeedmentException;
 import java.sql.Blob;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import static com.speedment.common.injector.State.RESOLVED;
@@ -33,7 +32,6 @@ public abstract class GeneratedMovieSqlAdapter {
     private final TableIdentifier<Movie> tableIdentifier;
     private SqlTypeMapperHelper<Blob, byte[]> movieImgHelper;
     private SqlTypeMapperHelper<Blob, byte[]> trailerHelper;
-    private SqlTypeMapperHelper<Date, Integer> yearofreleaseHelper;
     
     protected GeneratedMovieSqlAdapter() {
         this.tableIdentifier = TableIdentifier.of("database", "movies", "movie");
@@ -49,13 +47,13 @@ public abstract class GeneratedMovieSqlAdapter {
     protected Movie apply(ResultSet resultSet) throws SpeedmentException {
         final Movie entity = createEntity();
         try {
-            entity.setMovieId(       resultSet.getString(1)                          );
-            entity.setMovieTitle(    resultSet.getString(2)                          );
-            entity.setMovieDesc(     resultSet.getString(3)                          );
-            entity.setMovieImg(      movieImgHelper.apply(resultSet.getBlob(4))      );
-            entity.setTrailer(       trailerHelper.apply(resultSet.getBlob(5))       );
-            entity.setYearofrelease( yearofreleaseHelper.apply(resultSet.getDate(6)) );
-            entity.setDirectorId(    resultSet.getString(7)                          );
+            entity.setMovieId(       resultSet.getString(1)                     );
+            entity.setMovieTitle(    resultSet.getString(2)                     );
+            entity.setMovieDesc(     resultSet.getString(3)                     );
+            entity.setMovieImg(      movieImgHelper.apply(resultSet.getBlob(4)) );
+            entity.setTrailer(       trailerHelper.apply(resultSet.getBlob(5))  );
+            entity.setYearofrelease( resultSet.getDate(6)                       );
+            entity.setDirectorId(    resultSet.getString(7)                     );
         } catch (final SQLException sqle) {
             throw new SpeedmentException(sqle);
         }
@@ -71,6 +69,5 @@ public abstract class GeneratedMovieSqlAdapter {
         final Project project = projectComponent.getProject();
         movieImgHelper = SqlTypeMapperHelper.create(project, Movie.MOVIE_IMG, Movie.class);
         trailerHelper = SqlTypeMapperHelper.create(project, Movie.TRAILER, Movie.class);
-        yearofreleaseHelper = SqlTypeMapperHelper.create(project, Movie.YEAROFRELEASE, Movie.class);
     }
 }

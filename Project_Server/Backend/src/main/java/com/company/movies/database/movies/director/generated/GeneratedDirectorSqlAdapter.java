@@ -5,10 +5,14 @@ import com.company.movies.database.movies.director.DirectorImpl;
 import com.speedment.common.annotation.GeneratedCode;
 import com.speedment.common.injector.annotation.ExecuteBefore;
 import com.speedment.common.injector.annotation.WithState;
+import com.speedment.runtime.config.Project;
 import com.speedment.runtime.config.identifier.TableIdentifier;
+import com.speedment.runtime.core.component.ProjectComponent;
 import com.speedment.runtime.core.component.sql.SqlPersistenceComponent;
 import com.speedment.runtime.core.component.sql.SqlStreamSupplierComponent;
+import com.speedment.runtime.core.component.sql.SqlTypeMapperHelper;
 import com.speedment.runtime.core.exception.SpeedmentException;
+import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import static com.speedment.common.injector.State.RESOLVED;
@@ -26,6 +30,7 @@ import static com.speedment.common.injector.State.RESOLVED;
 public abstract class GeneratedDirectorSqlAdapter {
     
     private final TableIdentifier<Director> tableIdentifier;
+    private SqlTypeMapperHelper<Blob, byte[]> pictureHelper;
     
     protected GeneratedDirectorSqlAdapter() {
         this.tableIdentifier = TableIdentifier.of("database", "movies", "director");
@@ -41,9 +46,10 @@ public abstract class GeneratedDirectorSqlAdapter {
     protected Director apply(ResultSet resultSet) throws SpeedmentException {
         final Director entity = createEntity();
         try {
-            entity.setDirectorId( resultSet.getString(1) );
-            entity.setDirfname(   resultSet.getString(2) );
-            entity.setDirsname(   resultSet.getString(3) );
+            entity.setDirectorId( resultSet.getString(1)                    );
+            entity.setDirfname(   resultSet.getString(2)                    );
+            entity.setDirsname(   resultSet.getString(3)                    );
+            entity.setPicture(    pictureHelper.apply(resultSet.getBlob(4)) );
         } catch (final SQLException sqle) {
             throw new SpeedmentException(sqle);
         }
@@ -52,5 +58,11 @@ public abstract class GeneratedDirectorSqlAdapter {
     
     protected DirectorImpl createEntity() {
         return new DirectorImpl();
+    }
+    
+    @ExecuteBefore(RESOLVED)
+    void createHelpers(ProjectComponent projectComponent) {
+        final Project project = projectComponent.getProject();
+        pictureHelper = SqlTypeMapperHelper.create(project, Director.PICTURE, Director.class);
     }
 }

@@ -35,7 +35,8 @@ public abstract class GeneratedActorManagerImpl extends AbstractManager<Actor> i
         return Stream.of(
             Actor.ACTOR_ID,
             Actor.FIRST_NAME,
-            Actor.SURNAME
+            Actor.SURNAME,
+            Actor.PICTURE
         );
     }
     

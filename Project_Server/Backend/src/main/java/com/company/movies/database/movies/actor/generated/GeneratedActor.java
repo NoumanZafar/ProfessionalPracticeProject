@@ -5,8 +5,11 @@ import com.speedment.common.annotation.GeneratedCode;
 import com.speedment.runtime.config.identifier.ColumnIdentifier;
 import com.speedment.runtime.config.identifier.TableIdentifier;
 import com.speedment.runtime.core.util.OptionalUtil;
+import com.speedment.runtime.field.ReferenceField;
 import com.speedment.runtime.field.StringField;
 import com.speedment.runtime.typemapper.TypeMapper;
+import com.speedment.runtime.typemapper.largeobject.BlobToByteArrayMapper;
+import java.sql.Blob;
 import java.util.Optional;
 
 /**
@@ -55,6 +58,17 @@ public interface GeneratedActor {
         TypeMapper.identity(), 
         false
     );
+    /**
+     * This Field corresponds to the {@link Actor} field that can be obtained
+     * using the {@link Actor#getPicture()} method.
+     */
+    ReferenceField<Actor, Blob, byte[]> PICTURE = ReferenceField.create(
+        Identifier.PICTURE,
+        o -> OptionalUtil.unwrap(o.getPicture()),
+        Actor::setPicture,
+        new BlobToByteArrayMapper(), 
+        false
+    );
     
     /**
      * Returns the actorId of this Actor. The actorId field corresponds to the
@@ -79,6 +93,14 @@ public interface GeneratedActor {
      * @return the surname of this Actor
      */
     Optional<String> getSurname();
+    
+    /**
+     * Returns the picture of this Actor. The picture field corresponds to the
+     * database column database.movies.actor.PICTURE.
+     * 
+     * @return the picture of this Actor
+     */
+    Optional<byte[]> getPicture();
     
     /**
      * Sets the actorId of this Actor. The actorId field corresponds to the
@@ -107,11 +129,21 @@ public interface GeneratedActor {
      */
     Actor setSurname(String surname);
     
+    /**
+     * Sets the picture of this Actor. The picture field corresponds to the
+     * database column database.movies.actor.PICTURE.
+     * 
+     * @param picture to set of this Actor
+     * @return        this Actor instance
+     */
+    Actor setPicture(byte[] picture);
+    
     enum Identifier implements ColumnIdentifier<Actor> {
         
         ACTOR_ID   ("ACTOR_ID"),
         FIRST_NAME ("FIRST_NAME"),
-        SURNAME    ("SURNAME");
+        SURNAME    ("SURNAME"),
+        PICTURE    ("PICTURE");
         
         private final String columnName;
         private final TableIdentifier<Actor> tableIdentifier;

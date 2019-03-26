@@ -4,8 +4,13 @@ import com.company.movies.database.movies.director.Director;
 import com.speedment.common.annotation.GeneratedCode;
 import com.speedment.runtime.config.identifier.ColumnIdentifier;
 import com.speedment.runtime.config.identifier.TableIdentifier;
+import com.speedment.runtime.core.util.OptionalUtil;
+import com.speedment.runtime.field.ReferenceField;
 import com.speedment.runtime.field.StringField;
 import com.speedment.runtime.typemapper.TypeMapper;
+import com.speedment.runtime.typemapper.largeobject.BlobToByteArrayMapper;
+import java.sql.Blob;
+import java.util.Optional;
 
 /**
  * The generated base for the {@link
@@ -53,6 +58,17 @@ public interface GeneratedDirector {
         TypeMapper.identity(), 
         false
     );
+    /**
+     * This Field corresponds to the {@link Director} field that can be obtained
+     * using the {@link Director#getPicture()} method.
+     */
+    ReferenceField<Director, Blob, byte[]> PICTURE = ReferenceField.create(
+        Identifier.PICTURE,
+        o -> OptionalUtil.unwrap(o.getPicture()),
+        Director::setPicture,
+        new BlobToByteArrayMapper(), 
+        false
+    );
     
     /**
      * Returns the directorId of this Director. The directorId field corresponds
@@ -77,6 +93,14 @@ public interface GeneratedDirector {
      * @return the dirsname of this Director
      */
     String getDirsname();
+    
+    /**
+     * Returns the picture of this Director. The picture field corresponds to
+     * the database column database.movies.director.PICTURE.
+     * 
+     * @return the picture of this Director
+     */
+    Optional<byte[]> getPicture();
     
     /**
      * Sets the directorId of this Director. The directorId field corresponds to
@@ -105,11 +129,21 @@ public interface GeneratedDirector {
      */
     Director setDirsname(String dirsname);
     
+    /**
+     * Sets the picture of this Director. The picture field corresponds to the
+     * database column database.movies.director.PICTURE.
+     * 
+     * @param picture to set of this Director
+     * @return        this Director instance
+     */
+    Director setPicture(byte[] picture);
+    
     enum Identifier implements ColumnIdentifier<Director> {
         
         DIRECTOR_ID ("DIRECTOR_ID"),
         DIRFNAME    ("DIRFNAME"),
-        DIRSNAME    ("DIRSNAME");
+        DIRSNAME    ("DIRSNAME"),
+        PICTURE     ("PICTURE");
         
         private final String columnName;
         private final TableIdentifier<Director> tableIdentifier;

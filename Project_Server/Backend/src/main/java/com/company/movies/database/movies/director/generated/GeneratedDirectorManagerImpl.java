@@ -35,7 +35,8 @@ public abstract class GeneratedDirectorManagerImpl extends AbstractManager<Direc
         return Stream.of(
             Director.DIRECTOR_ID,
             Director.DIRFNAME,
-            Director.DIRSNAME
+            Director.DIRSNAME,
+            Director.PICTURE
         );
     }
     

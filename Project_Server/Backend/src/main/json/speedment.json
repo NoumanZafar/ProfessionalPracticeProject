@@ -1,7 +1,7 @@
 {
   "config" : {
     "expanded" : true,
-    "appId" : "eba6de16-30f7-40c2-a053-3a0cd4f00efa",
+    "appId" : "e51e96fa-cdf3-4246-a974-d014b128d703",
     "companyName" : "company",
     "name" : "movies",
     "packageLocation" : "src/main/java/",
@@ -68,6 +68,18 @@
                     "id" : "SURNAME",
                     "ordinalPosition" : 3,
                     "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.sql.Blob",
+                    "expanded" : true,
+                    "typeMapper" : "com.speedment.runtime.typemapper.largeobject.BlobToByteArrayMapper",
+                    "nullable" : true,
+                    "autoIncrement" : false,
+                    "name" : "PICTURE",
+                    "nullableImplementation" : "OPTIONAL",
+                    "id" : "PICTURE",
+                    "ordinalPosition" : 4,
+                    "enabled" : true
                   }
                 ],
                 "name" : "actor",
@@ -128,6 +140,18 @@
                     "name" : "DIRSNAME",
                     "id" : "DIRSNAME",
                     "ordinalPosition" : 3,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.sql.Blob",
+                    "expanded" : true,
+                    "typeMapper" : "com.speedment.runtime.typemapper.largeobject.BlobToByteArrayMapper",
+                    "nullable" : true,
+                    "autoIncrement" : false,
+                    "name" : "PICTURE",
+                    "nullableImplementation" : "OPTIONAL",
+                    "id" : "PICTURE",
+                    "ordinalPosition" : 4,
                     "enabled" : true
                   }
                 ],
@@ -306,7 +330,6 @@
                   {
                     "databaseType" : "java.sql.Date",
                     "expanded" : true,
-                    "typeMapper" : "com.speedment.runtime.typemapper.time.DateToIntMapper",
                     "nullable" : true,
                     "autoIncrement" : false,
                     "name" : "YEAROFRELEASE",
