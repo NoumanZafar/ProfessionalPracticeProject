@@ -1,0 +1,58 @@
+package com.gmit.backend;
+
+import java.io.IOException;
+import java.util.Base64;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.company.movies.MoviesApplication;
+import com.company.movies.database.movies.actor.Actor;
+import com.company.movies.database.movies.actor.ActorImpl;
+import com.company.movies.database.movies.actor.ActorManager;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.speedment.runtime.core.exception.SpeedmentException;
+
+@RestController
+@RequestMapping("/actors")
+@CrossOrigin("*")
+public class Actors {
+	private ActorManager actors;
+
+	public Actors(MoviesApplication app) {
+		actors = app.getOrThrow(ActorManager.class);
+	}
+
+	@RequestMapping(value = "list", method = RequestMethod.GET)
+	public List<Actor> getActors() {
+		return actors.stream().collect(Collectors.toList());
+	}
+
+	@RequestMapping(value = "insert", method = RequestMethod.POST)
+	public void insertActor(@RequestBody String jsonData) {
+		try {
+			ObjectMapper mapper = new ObjectMapper();
+			JsonNode jsonObject = mapper.readTree(jsonData);
+			String actorID = jsonObject.findValue("actorID").asText();
+			
+			actors.persist(new ActorImpl()
+					.setActorId(jsonObject.findValue("actorID").asText())
+					.setFirstName(jsonObject.findValue("actorFName").asText())
+					.setSurname(jsonObject.findValue("actorSurname").asText())
+					.setPicture(picture));
+		} catch (final SpeedmentException | IOException ex) {
+			ex.printStackTrace();
+		}
+	}
+	
+	public byte[] generateImageBytes(String imageString) throws IOException {
+		byte[] decodedByte = Base64.getMimeDecoder().decode(imageString);
+		return decodedByte;
+	}
+}
