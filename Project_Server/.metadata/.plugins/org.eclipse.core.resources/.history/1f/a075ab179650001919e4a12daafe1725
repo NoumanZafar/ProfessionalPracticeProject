@@ -48,9 +48,7 @@ public class Actors {
 	 * @param app {@link MoviesApplication}
 	 */
 	public Actors(MoviesApplication app) {
-		actors = app
-				.getOrThrow(
-						ActorManager.class);
+		actors = app.getOrThrow(ActorManager.class);
 	}
 
 	/**
@@ -63,8 +61,7 @@ public class Actors {
 	@RequestMapping(value = "list", method = RequestMethod.GET)
 	public List<Actor> getActors() {
 		return actors.stream()
-				.collect(
-						Collectors
+				.collect(Collectors
 						.toList());
 	}
 

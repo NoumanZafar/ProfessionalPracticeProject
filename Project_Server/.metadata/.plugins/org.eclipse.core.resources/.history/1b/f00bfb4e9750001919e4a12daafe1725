@@ -32,16 +32,17 @@ import com.speedment.runtime.core.exception.SpeedmentException;
 @RestController
 @RequestMapping("/movies")
 @CrossOrigin("*")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class Movies {
 	/**
-	 * Interface {@link MovieManager}.
+	 * Interface.
 	 */
 	private MovieManager movie;
 
 	/**
 	 * Constructor is used to connect to the table of movies database.
 	 * 
-	 * @param application Interface {@link MoviesApplication} of the whole database.
+	 * @param application Interface of the whole database.
 	 */
 	public Movies(MoviesApplication application) {
 		movie = application
@@ -77,9 +78,6 @@ public class Movies {
 	@RequestMapping(value = "insert", method = RequestMethod.POST)
 	public void insertMovie(@RequestBody String jsonData) {
 		try {
-			/**
-			 * String is converted into JSON data and the JSON object is created
-			 */
 			JsonNode jsonObject = new ObjectMapper()
 					.readTree(jsonData);
 
@@ -100,18 +98,9 @@ public class Movies {
 					.setMovieImg(generateImageBytes(jsonObject
 							.findValue("movieImage")
 							.asText()))
-					/** Movie Trailer */
-					.setTrailer(generateImageBytes(jsonObject
-							.findValue("movieTrailer")
-							.asText()))
-					/** Movie Year Released */
-					.setYearofrelease(jsonObject
-							.findValue("movieReleaseYear")
-							.asText())
-					/** Movie Director */
-					.setDirectorId(jsonObject
-							.findValue("directorID")
-							.asText()));
+					.setTrailer(generateImageBytes(jsonObject.findValue("movieTrailer").asText()))
+					.setYearofrelease(jsonObject.findValue("movieReleaseYear").asText())
+					.setDirectorId(jsonObject.findValue("directorID").asText()));
 		} catch (final SpeedmentException | IOException ex) {
 			ex.printStackTrace();
 		}
@@ -126,8 +115,6 @@ public class Movies {
 	 * @throws IOException Input/Output Exception
 	 */
 	public byte[] generateImageBytes(String base64String) throws IOException {
-		return Base64
-				.getMimeDecoder()
-				.decode(base64String);
+		return Base64.getMimeDecoder().decode(base64String);
 	}
 }

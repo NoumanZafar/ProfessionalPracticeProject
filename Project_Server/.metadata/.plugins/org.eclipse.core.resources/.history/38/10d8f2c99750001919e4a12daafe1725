@@ -126,8 +126,6 @@ public class Movies {
 	 * @throws IOException Input/Output Exception
 	 */
 	public byte[] generateImageBytes(String base64String) throws IOException {
-		return Base64
-				.getMimeDecoder()
-				.decode(base64String);
+		return Base64.getMimeDecoder().decode(base64String);
 	}
 }

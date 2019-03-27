@@ -48,9 +48,7 @@ public class Actors {
 	 * @param app {@link MoviesApplication}
 	 */
 	public Actors(MoviesApplication app) {
-		actors = app
-				.getOrThrow(
-						ActorManager.class);
+		actors = app.getOrThrow(ActorManager.class);
 	}
 
 	/**
@@ -63,8 +61,7 @@ public class Actors {
 	@RequestMapping(value = "list", method = RequestMethod.GET)
 	public List<Actor> getActors() {
 		return actors.stream()
-				.collect(
-						Collectors
+				.collect(Collectors
 						.toList());
 	}
 
@@ -115,8 +112,6 @@ public class Actors {
 	 * @throws IOException Input/Output Exception
 	 */
 	public byte[] generateImageBytes(String base64String) throws IOException {
-		return Base64
-				.getMimeDecoder()
-				.decode(base64String);
+		return Base64.getMimeDecoder().decode(base64String);
 	}
 }

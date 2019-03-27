@@ -32,21 +32,20 @@ import com.speedment.runtime.core.exception.SpeedmentException;
 @RestController
 @RequestMapping("/movies")
 @CrossOrigin("*")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class Movies {
 	/**
-	 * Interface {@link MovieManager}.
+	 * Interface.
 	 */
 	private MovieManager movie;
 
 	/**
 	 * Constructor is used to connect to the table of movies database.
 	 * 
-	 * @param application Interface {@link MoviesApplication} of the whole database.
+	 * @param application Interface of the whole database.
 	 */
 	public Movies(MoviesApplication application) {
-		movie = application
-				.getOrThrow(
-						MovieManager.class);
+		movie = application.getOrThrow(MovieManager.class);
 	}
 
 	/**
@@ -59,59 +58,30 @@ public class Movies {
 	 */
 	@RequestMapping(value = "list", method = RequestMethod.GET)
 	public List<Movie> getMovies() {
-		return movie
-				.stream()
-				.collect(Collectors
-						.toList());
+		return movie.stream().collect(Collectors.toList());
 	}
 
 	/**
 	 * This method produce a POST HTTP request which is used to insert the data into
 	 * database table called Movie. Request is produced on URI /movies/insert. This
 	 * method gets the JSON data as string then change that string into JSON object
-	 * and use the fields of JSON object to get the data for specific column of the
-	 * table. Using {@link MovieImpl} data is inserted.
+	 * and use the fields of JSON object to get the data fro specific column of the
+	 * table.
 	 * 
 	 * @param jsonData JSON Objects are taken as string
 	 */
 	@RequestMapping(value = "insert", method = RequestMethod.POST)
 	public void insertMovie(@RequestBody String jsonData) {
 		try {
-			/**
-			 * String is converted into JSON data and the JSON object is created
-			 */
-			JsonNode jsonObject = new ObjectMapper()
-					.readTree(jsonData);
+			JsonNode jsonObject = new ObjectMapper().readTree(jsonData);
 
-			movie.persist(new MovieImpl()
-					/** Movie ID */
-					.setMovieId(jsonObject
-							.findValue("movieID")
-							.asText())
-					/** Movie Title */
-					.setMovieTitle(jsonObject
-							.findValue("movieTitle")
-							.asText())
-					/** Movie Description */
-					.setMovieDesc(jsonObject
-							.findValue("movieDesc")
-							.asText())
-					/** Movie Poster Image */
-					.setMovieImg(generateImageBytes(jsonObject
-							.findValue("movieImage")
-							.asText()))
-					/** Movie Trailer */
-					.setTrailer(generateImageBytes(jsonObject
-							.findValue("movieTrailer")
-							.asText()))
-					/** Movie Year Released */
-					.setYearofrelease(jsonObject
-							.findValue("movieReleaseYear")
-							.asText())
-					/** Movie Director */
-					.setDirectorId(jsonObject
-							.findValue("directorID")
-							.asText()));
+			movie.persist(new MovieImpl().setMovieId(jsonObject.findValue("movieID").asText())
+					.setMovieTitle(jsonObject.findValue("movieTitle").asText())
+					.setMovieDesc(jsonObject.findValue("movieDesc").asText())
+					.setMovieImg(generateImageBytes(jsonObject.findValue("movieImage").asText()))
+					.setTrailer(generateImageBytes(jsonObject.findValue("movieTrailer").asText()))
+					.setYearofrelease(jsonObject.findValue("movieReleaseYear").asText())
+					.setDirectorId(jsonObject.findValue("directorID").asText()));
 		} catch (final SpeedmentException | IOException ex) {
 			ex.printStackTrace();
 		}
@@ -126,8 +96,6 @@ public class Movies {
 	 * @throws IOException Input/Output Exception
 	 */
 	public byte[] generateImageBytes(String base64String) throws IOException {
-		return Base64
-				.getMimeDecoder()
-				.decode(base64String);
+		return Base64.getMimeDecoder().decode(base64String);
 	}
 }

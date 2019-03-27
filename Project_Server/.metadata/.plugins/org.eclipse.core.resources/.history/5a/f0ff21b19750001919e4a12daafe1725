@@ -77,9 +77,7 @@ public class Movies {
 	@RequestMapping(value = "insert", method = RequestMethod.POST)
 	public void insertMovie(@RequestBody String jsonData) {
 		try {
-			/**
-			 * String is converted into JSON data and the JSON object is created
-			 */
+			/**String is converted into JSON data and the JSON object is created*/
 			JsonNode jsonObject = new ObjectMapper()
 					.readTree(jsonData);
 
@@ -126,8 +124,6 @@ public class Movies {
 	 * @throws IOException Input/Output Exception
 	 */
 	public byte[] generateImageBytes(String base64String) throws IOException {
-		return Base64
-				.getMimeDecoder()
-				.decode(base64String);
+		return Base64.getMimeDecoder().decode(base64String);
 	}
 }

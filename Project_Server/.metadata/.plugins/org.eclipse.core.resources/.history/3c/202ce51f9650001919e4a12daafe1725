@@ -63,8 +63,7 @@ public class Actors {
 	@RequestMapping(value = "list", method = RequestMethod.GET)
 	public List<Actor> getActors() {
 		return actors.stream()
-				.collect(
-						Collectors
+				.collect(Collectors
 						.toList());
 	}
 
