@@ -7,14 +7,12 @@ import com.speedment.runtime.config.identifier.ColumnIdentifier;
 import com.speedment.runtime.config.identifier.TableIdentifier;
 import com.speedment.runtime.core.manager.Manager;
 import com.speedment.runtime.core.util.OptionalUtil;
-import com.speedment.runtime.field.ComparableField;
 import com.speedment.runtime.field.ReferenceField;
 import com.speedment.runtime.field.StringField;
 import com.speedment.runtime.field.StringForeignKeyField;
 import com.speedment.runtime.typemapper.TypeMapper;
 import com.speedment.runtime.typemapper.largeobject.BlobToByteArrayMapper;
 import java.sql.Blob;
-import java.sql.Date;
 import java.util.Optional;
 
 /**
@@ -89,7 +87,7 @@ public interface GeneratedMovie {
      * This Field corresponds to the {@link Movie} field that can be obtained
      * using the {@link Movie#getYearofrelease()} method.
      */
-    ComparableField<Movie, Date, Date> YEAROFRELEASE = ComparableField.create(
+    StringField<Movie, String> YEAROFRELEASE = StringField.create(
         Identifier.YEAROFRELEASE,
         o -> OptionalUtil.unwrap(o.getYearofrelease()),
         Movie::setYearofrelease,
@@ -155,7 +153,7 @@ public interface GeneratedMovie {
      * 
      * @return the yearofrelease of this Movie
      */
-    Optional<Date> getYearofrelease();
+    Optional<String> getYearofrelease();
     
     /**
      * Returns the directorId of this Movie. The directorId field corresponds to
@@ -217,7 +215,7 @@ public interface GeneratedMovie {
      * @param yearofrelease to set of this Movie
      * @return              this Movie instance
      */
-    Movie setYearofrelease(Date yearofrelease);
+    Movie setYearofrelease(String yearofrelease);
     
     /**
      * Sets the directorId of this Movie. The directorId field corresponds to

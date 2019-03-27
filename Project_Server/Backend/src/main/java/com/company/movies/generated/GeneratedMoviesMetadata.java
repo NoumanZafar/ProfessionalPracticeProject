@@ -53,6 +53,7 @@ public class GeneratedMoviesMetadata extends AbstractApplicationMetadata {
             "        \"port\" : 3306,",
             "        \"schemas\" : [",
             "          {",
+            "            \"expanded\" : true,",
             "            \"tables\" : [",
             "              {",
             "                \"expanded\" : true,",
@@ -138,13 +139,13 @@ public class GeneratedMoviesMetadata extends AbstractApplicationMetadata {
             "                  }",
             "                ],",
             "                \"indexes\" : [",
-            "                  {",
-            "                    \"expanded\" : false,"
+            "                  {"
         ).forEachOrdered(sb::append);
     }
     
     private static void initPart1(StringBuilder sb) {
         Stream.of(
+            "                    \"expanded\" : false,",
             "                    \"unique\" : true,",
             "                    \"name\" : \"PRIMARY\",",
             "                    \"indexColumns\" : [",
@@ -244,13 +245,13 @@ public class GeneratedMoviesMetadata extends AbstractApplicationMetadata {
             "                    \"enabled\" : true",
             "                  },",
             "                  {",
-            "                    \"databaseType\" : \"java.lang.String\",",
-            "                    \"expanded\" : true,"
+            "                    \"databaseType\" : \"java.lang.String\","
         ).forEachOrdered(sb::append);
     }
     
     private static void initPart2(StringBuilder sb) {
         Stream.of(
+            "                    \"expanded\" : true,",
             "                    \"nullable\" : false,",
             "                    \"name\" : \"GENRE_TYPE\",",
             "                    \"id\" : \"GENRE_TYPE\",",
@@ -263,6 +264,7 @@ public class GeneratedMoviesMetadata extends AbstractApplicationMetadata {
             "                \"enabled\" : true",
             "              },",
             "              {",
+            "                \"expanded\" : true,",
             "                \"foreignKeys\" : [",
             "                  {",
             "                    \"expanded\" : false,",
@@ -283,7 +285,6 @@ public class GeneratedMoviesMetadata extends AbstractApplicationMetadata {
             "                    \"enabled\" : true",
             "                  }",
             "                ],",
-            "                \"expanded\" : true,",
             "                \"primaryKeyColumns\" : [",
             "                  {",
             "                    \"expanded\" : true,",
@@ -350,13 +351,13 @@ public class GeneratedMoviesMetadata extends AbstractApplicationMetadata {
             "                    \"expanded\" : true,",
             "                    \"nullable\" : true,",
             "                    \"name\" : \"MOVIE_DESC\",",
-            "                    \"id\" : \"MOVIE_DESC\",",
-            "                    \"ordinalPosition\" : 3,"
+            "                    \"id\" : \"MOVIE_DESC\","
         ).forEachOrdered(sb::append);
     }
     
     private static void initPart3(StringBuilder sb) {
         Stream.of(
+            "                    \"ordinalPosition\" : 3,",
             "                    \"enabled\" : true",
             "                  },",
             "                  {",
@@ -384,7 +385,7 @@ public class GeneratedMoviesMetadata extends AbstractApplicationMetadata {
             "                    \"enabled\" : true",
             "                  },",
             "                  {",
-            "                    \"databaseType\" : \"java.sql.Date\",",
+            "                    \"databaseType\" : \"java.lang.String\",",
             "                    \"expanded\" : true,",
             "                    \"nullable\" : true,",
             "                    \"autoIncrement\" : false,",
@@ -409,6 +410,7 @@ public class GeneratedMoviesMetadata extends AbstractApplicationMetadata {
             "                \"enabled\" : true",
             "              },",
             "              {",
+            "                \"expanded\" : true,",
             "                \"foreignKeys\" : [",
             "                  {",
             "                    \"expanded\" : false,",
@@ -447,7 +449,6 @@ public class GeneratedMoviesMetadata extends AbstractApplicationMetadata {
             "                    \"enabled\" : true",
             "                  }",
             "                ],",
-            "                \"expanded\" : true,",
             "                \"primaryKeyColumns\" : [",
             "                  {",
             "                    \"expanded\" : true,",
@@ -456,13 +457,13 @@ public class GeneratedMoviesMetadata extends AbstractApplicationMetadata {
             "                    \"ordinalPosition\" : 1",
             "                  },",
             "                  {",
-            "                    \"expanded\" : true,",
-            "                    \"name\" : \"MOVIE_ID\","
+            "                    \"expanded\" : true,"
         ).forEachOrdered(sb::append);
     }
     
     private static void initPart4(StringBuilder sb) {
         Stream.of(
+            "                    \"name\" : \"MOVIE_ID\",",
             "                    \"id\" : \"MOVIE_ID\",",
             "                    \"ordinalPosition\" : 2",
             "                  }",
@@ -533,25 +534,8 @@ public class GeneratedMoviesMetadata extends AbstractApplicationMetadata {
             "                \"enabled\" : true",
             "              },",
             "              {",
+            "                \"expanded\" : true,",
             "                \"foreignKeys\" : [",
-            "                  {",
-            "                    \"expanded\" : false,",
-            "                    \"foreignKeyColumns\" : [",
-            "                      {",
-            "                        \"foreignDatabaseName\" : \"database\",",
-            "                        \"foreignSchemaName\" : \"movies\",",
-            "                        \"expanded\" : true,",
-            "                        \"name\" : \"MOVIE_ID\",",
-            "                        \"foreignColumnName\" : \"MOVIE_ID\",",
-            "                        \"id\" : \"MOVIE_ID\",",
-            "                        \"foreignTableName\" : \"movie\",",
-            "                        \"ordinalPosition\" : 1",
-            "                      }",
-            "                    ],",
-            "                    \"name\" : \"movie_genre_ibfk_1\",",
-            "                    \"id\" : \"movie_genre_ibfk_1\",",
-            "                    \"enabled\" : true",
-            "                  },",
             "                  {",
             "                    \"expanded\" : false,",
             "                    \"foreignKeyColumns\" : [",
@@ -563,20 +547,37 @@ public class GeneratedMoviesMetadata extends AbstractApplicationMetadata {
             "                        \"foreignColumnName\" : \"GENRE_ID\",",
             "                        \"id\" : \"GENRE_ID\",",
             "                        \"foreignTableName\" : \"genre\",",
-            "                        \"ordinalPosition\" : 1"
-        ).forEachOrdered(sb::append);
-    }
-    
-    private static void initPart5(StringBuilder sb) {
-        Stream.of(
+            "                        \"ordinalPosition\" : 1",
             "                      }",
             "                    ],",
             "                    \"name\" : \"movie_genre_ibfk_2\",",
             "                    \"id\" : \"movie_genre_ibfk_2\",",
             "                    \"enabled\" : true",
+            "                  },",
+            "                  {",
+            "                    \"expanded\" : false,",
+            "                    \"foreignKeyColumns\" : [",
+            "                      {",
+            "                        \"foreignDatabaseName\" : \"database\",",
+            "                        \"foreignSchemaName\" : \"movies\",",
+            "                        \"expanded\" : true,",
+            "                        \"name\" : \"MOVIE_ID\",",
+            "                        \"foreignColumnName\" : \"MOVIE_ID\",",
+            "                        \"id\" : \"MOVIE_ID\","
+        ).forEachOrdered(sb::append);
+    }
+    
+    private static void initPart5(StringBuilder sb) {
+        Stream.of(
+            "                        \"foreignTableName\" : \"movie\",",
+            "                        \"ordinalPosition\" : 1",
+            "                      }",
+            "                    ],",
+            "                    \"name\" : \"movie_genre_ibfk_1\",",
+            "                    \"id\" : \"movie_genre_ibfk_1\",",
+            "                    \"enabled\" : true",
             "                  }",
             "                ],",
-            "                \"expanded\" : true,",
             "                \"primaryKeyColumns\" : [",
             "                  {",
             "                    \"expanded\" : true,",
@@ -657,7 +658,6 @@ public class GeneratedMoviesMetadata extends AbstractApplicationMetadata {
             "                \"enabled\" : true",
             "              }",
             "            ],",
-            "            \"expanded\" : true,",
             "            \"name\" : \"movies\",",
             "            \"id\" : \"movies\",",
             "            \"enabled\" : true",

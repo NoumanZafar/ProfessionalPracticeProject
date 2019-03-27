@@ -52,7 +52,7 @@ public abstract class GeneratedMovieSqlAdapter {
             entity.setMovieDesc(     resultSet.getString(3)                     );
             entity.setMovieImg(      movieImgHelper.apply(resultSet.getBlob(4)) );
             entity.setTrailer(       trailerHelper.apply(resultSet.getBlob(5))  );
-            entity.setYearofrelease( resultSet.getDate(6)                       );
+            entity.setYearofrelease( resultSet.getString(6)                     );
             entity.setDirectorId(    resultSet.getString(7)                     );
         } catch (final SQLException sqle) {
             throw new SpeedmentException(sqle);

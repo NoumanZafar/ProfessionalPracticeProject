@@ -12,6 +12,7 @@
         "port" : 3306,
         "schemas" : [
           {
+            "expanded" : true,
             "tables" : [
               {
                 "expanded" : true,
@@ -212,6 +213,7 @@
                 "enabled" : true
               },
               {
+                "expanded" : true,
                 "foreignKeys" : [
                   {
                     "expanded" : false,
@@ -232,7 +234,6 @@
                     "enabled" : true
                   }
                 ],
-                "expanded" : true,
                 "primaryKeyColumns" : [
                   {
                     "expanded" : true,
@@ -328,7 +329,7 @@
                     "enabled" : true
                   },
                   {
-                    "databaseType" : "java.sql.Date",
+                    "databaseType" : "java.lang.String",
                     "expanded" : true,
                     "nullable" : true,
                     "autoIncrement" : false,
@@ -353,6 +354,7 @@
                 "enabled" : true
               },
               {
+                "expanded" : true,
                 "foreignKeys" : [
                   {
                     "expanded" : false,
@@ -391,7 +393,6 @@
                     "enabled" : true
                   }
                 ],
-                "expanded" : true,
                 "primaryKeyColumns" : [
                   {
                     "expanded" : true,
@@ -472,25 +473,8 @@
                 "enabled" : true
               },
               {
+                "expanded" : true,
                 "foreignKeys" : [
-                  {
-                    "expanded" : false,
-                    "foreignKeyColumns" : [
-                      {
-                        "foreignDatabaseName" : "database",
-                        "foreignSchemaName" : "movies",
-                        "expanded" : true,
-                        "name" : "MOVIE_ID",
-                        "foreignColumnName" : "MOVIE_ID",
-                        "id" : "MOVIE_ID",
-                        "foreignTableName" : "movie",
-                        "ordinalPosition" : 1
-                      }
-                    ],
-                    "name" : "movie_genre_ibfk_1",
-                    "id" : "movie_genre_ibfk_1",
-                    "enabled" : true
-                  },
                   {
                     "expanded" : false,
                     "foreignKeyColumns" : [
@@ -508,9 +492,26 @@
                     "name" : "movie_genre_ibfk_2",
                     "id" : "movie_genre_ibfk_2",
                     "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "foreignKeyColumns" : [
+                      {
+                        "foreignDatabaseName" : "database",
+                        "foreignSchemaName" : "movies",
+                        "expanded" : true,
+                        "name" : "MOVIE_ID",
+                        "foreignColumnName" : "MOVIE_ID",
+                        "id" : "MOVIE_ID",
+                        "foreignTableName" : "movie",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "name" : "movie_genre_ibfk_1",
+                    "id" : "movie_genre_ibfk_1",
+                    "enabled" : true
                   }
                 ],
-                "expanded" : true,
                 "primaryKeyColumns" : [
                   {
                     "expanded" : true,
@@ -591,7 +592,6 @@
                 "enabled" : true
               }
             ],
-            "expanded" : true,
             "name" : "movies",
             "id" : "movies",
             "enabled" : true

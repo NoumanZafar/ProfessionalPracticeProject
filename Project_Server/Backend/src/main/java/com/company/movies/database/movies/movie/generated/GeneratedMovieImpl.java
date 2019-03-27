@@ -5,7 +5,6 @@ import com.company.movies.database.movies.movie.Movie;
 import com.speedment.common.annotation.GeneratedCode;
 import com.speedment.runtime.core.manager.Manager;
 import com.speedment.runtime.core.util.OptionalUtil;
-import java.sql.Date;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.StringJoiner;
@@ -27,7 +26,7 @@ public abstract class GeneratedMovieImpl implements Movie {
     private String movieDesc;
     private byte[] movieImg;
     private byte[] trailer;
-    private Date yearofrelease;
+    private String yearofrelease;
     private String directorId;
     
     protected GeneratedMovieImpl() {
@@ -60,7 +59,7 @@ public abstract class GeneratedMovieImpl implements Movie {
     }
     
     @Override
-    public Optional<Date> getYearofrelease() {
+    public Optional<String> getYearofrelease() {
         return Optional.ofNullable(yearofrelease);
     }
     
@@ -100,7 +99,7 @@ public abstract class GeneratedMovieImpl implements Movie {
     }
     
     @Override
-    public Movie setYearofrelease(Date yearofrelease) {
+    public Movie setYearofrelease(String yearofrelease) {
         this.yearofrelease = yearofrelease;
         return this;
     }
