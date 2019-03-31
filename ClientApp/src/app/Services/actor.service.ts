@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Actor} from '../Models/actor.model';
 import { Observable } from 'rxjs';
+import { Binary } from 'selenium-webdriver/firefox';
+import { utf8Encode } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'
@@ -9,16 +11,48 @@ import { Observable } from 'rxjs';
 export class ActorService {
   
   constructor(private http: HttpClient) { }
-  
-  //Testing functionality of table with hardcoded json before trying database
-  getActorsData(): Observable<any> {
+  uri='http://localhost:8080';
+ 
+  file:File;
+  base64textString:string;
+  binaryString:string;
+  sendData:string;
 
-    return this.http.get('https://jsonblob.com/api/480fc466-4378-11e9-a39b-e90caae17eb2');
+
+  getAll():Observable<any>{
+    return this.http.get(`${this.uri}/actors/list`);
+  }
+  
+ //Returns data from mysql database.
+  getActorsData(): Observable<any> {
+    return this.http.get(`${this.uri}/actors/list`);
  }
 
- // }
-/*addActor(ACTOR_ID : number,FIRST_NAME: string,SURNAME: string ):Observable<any>{
-  const actor: Actor={ACTOR_ID: ACTOR_ID, FIRST_NAME:FIRST_NAME,SURNAME:SURNAME};
-  return this.http.post("http://localhost:8080/api/actors",actor);
-}*/
+ onFileSelected(event){
+  var files=event.target.files;
+  this.file=files[0];
+  if(files && this.file){
+    var reader=new FileReader();
+    reader.onload=this._handleReaderLoaded.bind(this);
+    reader.readAsBinaryString(this.file);
+  }
 }
+
+_handleReaderLoaded(readerEvt) {
+       this.binaryString = readerEvt.target.result;
+       this.base64textString= btoa(this.binaryString);
+       //console.log(btoa(this.base64textString));
+}
+
+addActor(actorID: any,actorFName: any,actorSurname: any, picture: any){
+  const actor =[{"actorID": actorID, "actorFname": actorFName, "actorSurname": actorSurname, picture:this.base64textString}];
+  
+  let headers: HttpHeaders=new HttpHeaders({'Content-Type':'application/json; charset=UTF-8'});
+  console.log(actor)
+
+  return this.http.post(`${this.uri}/actors/insertActor`, actor,{
+    headers:headers});
+
+}
+}
+  

@@ -10,7 +10,7 @@ import { Observable} from 'rxjs';
   styleUrls: ['./view-actors.component.css']
 })
 export class ViewActorsComponent implements OnInit {
-  actors: any = [];
+  actors:Array<any>;
 
   constructor(private service: ActorService) { }
 
@@ -18,7 +18,7 @@ export class ViewActorsComponent implements OnInit {
   ngOnInit() {
    this.service.getActorsData().subscribe(data => 
     {
-      this.actors = data.actors;
+      this.actors = data;
       console.log("In actors component "+ data.actors); 
      
 });

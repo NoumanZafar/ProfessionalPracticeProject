@@ -22,6 +22,8 @@ import { HomeComponent } from './Components/home/home.component';
 import { ViewActorsComponent } from './Components/view-actors/view-actors.component';
 import { ViewMoviesComponent } from './Components/view-movies/view-movies.component';
 import { MatVideoModule } from 'mat-video';
+import { TrailerComponent } from './Components/trailer/trailer.component';
+
 
 //Routing for the Component paths.
 const appRoutes: Routes =[
@@ -51,6 +53,11 @@ const appRoutes: Routes =[
   //Change path when to homepage when done
   path: 'ViewMovies',
   component: ViewMoviesComponent
+},
+{
+//Change path when to homepage when done
+path: 'Trailers',
+component: TrailerComponent
 }
   
 
@@ -65,7 +72,8 @@ const appRoutes: Routes =[
     AddActorComponent,
     HomeComponent,
     ViewActorsComponent,
-    ViewMoviesComponent
+    ViewMoviesComponent,
+    TrailerComponent
   ],
   imports: [
     BrowserModule,

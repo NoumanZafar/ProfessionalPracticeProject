@@ -3,22 +3,20 @@
       <h3 align = "center">Add Actor to Database</h3>
 
     <mat-form-field>
-    <input matInput type="text" name="ACTOR_ID" ngModel required maxlength="3" #MOVIE_ID="ngModel" 
+    <input matInput type="text" name="actorID" ngModel required maxlength="3" #MOVIE_ID="ngModel" 
     placeholder="Actor ID">
-    <mat-error *ngIf= "MOVIE_ID.invalid">Please enter an Actor Id</mat-error>
   </mat-form-field>
 
   <mat-form-field>
-      <input matInput rows="2" name="FIRST_NAME" ngModel required #content="ngModel" placeholder="First Name">
-      <mat-error *ngIf= "content.invalid">Please enter First Name</mat-error>
+      <input matInput rows="2" name="actorFName" ngModel required #content="ngModel" placeholder="First Name">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput rows="2" name="SURNAME" ngModel required #content="ngModel" placeholder="Surname">
-      <mat-error *ngIf= "content.invalid">Please enter Surname</mat-error>
+      <input matInput rows="2" name="actorSurname" ngModel required #content="ngModel" placeholder="Surname">
     </mat-form-field>
-
-    <button mat-raised-button color="primary">Submit</button>
+      <input type="file" (change)="onFileSelected($event)" #picture>
+  
+    <button mat-raised-button color="primary" type="submit">Submit</button>
 
   </form>
 </mat-card>

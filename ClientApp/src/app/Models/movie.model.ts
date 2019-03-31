@@ -4,7 +4,7 @@ export interface Movie{
     MOVIE_DESC: string;
     MOVIE_IMG: Blob;
     TRAILER: Blob;
-    YEAROFRELEASE: Date;
+    YEAROFRELEASE: number;
     DIRECTOR_ID: number;
 
 }

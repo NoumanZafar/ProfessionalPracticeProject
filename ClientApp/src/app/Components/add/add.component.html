@@ -27,14 +27,14 @@
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput type="date" name="date" ngModel required #content="ngModel" placeholder="YEAR OF RELEASE">
+      <input matInput type="number" name="date" ngModel required #content="ngModel" placeholder="Year of Release">
     </mat-form-field>
 
     <mat-form-field>
       <input matInput type="text" name="Director ID" ngModel required #content="ngModel" placeholder="Director_id">
     </mat-form-field>
 
-    <button mat-raised-button color="accent">Submit</button>
+    <button mat-raised-button color="primary" type="submit">Submit</button>
 
   </form>
 </mat-card>

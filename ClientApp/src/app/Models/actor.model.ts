@@ -1,6 +1,7 @@
 export interface Actor{
-actor_id : number;
-first_name: string;
-surname: string; 
+actorID : number;
+actorfirstName: string;
+actorSurname: string; 
+picture: any;
     
 }

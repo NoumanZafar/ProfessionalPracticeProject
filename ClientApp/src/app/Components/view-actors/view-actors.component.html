@@ -1,17 +1,21 @@
 <table class="table">
   <thead>
     <tr>
-      <td>ACTOR ID</td>
       <td>FIRST-NAME</td>
       <td>SURNAME</td>
+      <td>Image</td>
     </tr>
   </thead>
 
   <tbody>
     <tr *ngFor = 'let actor of actors'>
-      <td>{{actor.actor_id}}</td>
-      <td>{{actor.first_name}}</td>
+      <td>{{actor.firstName}}</td>
       <td>{{actor.surname}}</td>
+      <td>
+        <!--Image is taken as byte array and change to base64 and then a image is displayed.-->
+        <img [src]="'data:image/JPEG;base64,' + actor.picture" width="250" height="200" />      
+      </td>
+      
     </tr>
   </tbody>
 </table>

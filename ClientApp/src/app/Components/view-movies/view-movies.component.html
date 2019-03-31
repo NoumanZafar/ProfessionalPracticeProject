@@ -1,40 +1,12 @@
-<table class="table">
-    <thead>
-      <tr>
-        <td>Movie ID</td>
-        <td>Movie Title</td>
-        <td>Movie Description</td>
-        <td>Movie image</td>
-        <td>Trailer</td>
-        <td>Year</td>
-        <td>Director ID</td>
-      </tr>
-    </thead>
-  <!-- Movies data is comming from database on cloud -->
-  <!-- 
-    column names are bit different as they are stored in the database. If having dificulty, please print the json array
-    in component in the console to see the column names of the data. for example id of the movie is stored in database as movie_id but
-    when same is being read here should read as movieId tahre is no _ (symbol) in json data. 
-  -->
-    <tbody>
-      <tr *ngFor = 'let movie of movies'>
-        <td>{{movie.movieId}}</td>
-        <td>{{movie.movieTitle}}</td>
-        <td>{{movie.movieDesc}}</td>
-        <td>
-          <!--Image is taken as byte array and change to base64 and then a image is displayed.-->
-          <img [src]="'data:image/JPEG;base64,' + movie.movieImg" width="200" height="300" />      
-        </td>
-        <td>
-          <!--Byte array to base64 and then video is onverted in mp4 to play and display on the page.-->
-          <mat-video width="200" height="300" controls>
-              <source [src]="'data:video/mp4;base64,'+movie.trailer">
-          </mat-video>
-        </td>
-
-        <td>{{movie.yearofrelease}}</td>
-        <td>{{movie.directorId}}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="background" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="1.0%" fxLayoutAlign="center">   
+    <mat-card class="card-picture" *ngFor="let movie of movies">
+        <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+        <span fxFlex="100%">{{movie.movieTitle}}</span>
+        </mat-card-title>
+        <img mat-card-image [src]="'data:image/JPEG;base64,' + movie.movieImg"/>
+        <h5>{{movie.movieDesc}}</h5> 
+        <h5>{{yearofrelease}}</h5>
+        <a mat-list-item [routerLink]="['/Trailers']">View Trailer</a>
+      </mat-card>
+    </div>
   
