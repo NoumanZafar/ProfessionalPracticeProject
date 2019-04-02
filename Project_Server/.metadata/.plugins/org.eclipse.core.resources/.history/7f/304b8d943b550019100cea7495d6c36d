@@ -29,7 +29,7 @@ import com.speedment.runtime.core.exception.SpeedmentException;
  *
  */
 @RestController
-@RequestMapping("/actors")
+//@RequestMapping("/actors")
 /**
  * Allow the browser to get the requests from different platforms and pass the
  * requests on.
@@ -60,7 +60,7 @@ public class Actors {
 	 * 
 	 * @return list of actors fetched from database table.
 	 */
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	@RequestMapping(value = "list", method = RequestMethod.GET)
 	public List<Actor> getActors() {
 		return actors.stream()
 				.collect(
@@ -78,11 +78,14 @@ public class Actors {
 	 * 
 	 * @param jsonData JSON data as string from client side.
 	 */
-	@RequestMapping(value = "/insert", method = RequestMethod.POST)
+	@RequestMapping(value = "/actors/insert", method = RequestMethod.POST)
 	public void insertActor(@RequestBody String jsonData) {
 		try {
-			JsonNode jsonObject = new ObjectMapper()
+			System.out.println("Datat for client : "+jsonData);
+			ObjectMapper mapper= new ObjectMapper();
+			JsonNode jsonObject = mapper
 					.readTree(jsonData);
+			System.out.println(jsonObject);
 			
 			actors.persist(new ActorImpl()
 					/** Actor ID */
@@ -91,7 +94,7 @@ public class Actors {
 							.asText())
 					/** Actor First Name */
 					.setFirstName(jsonObject
-							.findValue("actorFname")
+							.findValue("actorFName")
 							.asText())
 					/** Actor Surname */
 					.setSurname(jsonObject
@@ -99,7 +102,7 @@ public class Actors {
 							.asText())
 					/** Actor Picture */
 					.setPicture(generateImageBytes(jsonObject
-							.findValue("picture")
+							.findValue("actorImage")
 							.asText())));
 		} catch (final SpeedmentException | IOException ex) {
 			ex.printStackTrace();

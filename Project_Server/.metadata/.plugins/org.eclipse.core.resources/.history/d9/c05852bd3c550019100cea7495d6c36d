@@ -29,7 +29,7 @@ import com.speedment.runtime.core.exception.SpeedmentException;
  *
  */
 @RestController
-@RequestMapping("/actors")
+//@RequestMapping("/actors")
 /**
  * Allow the browser to get the requests from different platforms and pass the
  * requests on.
@@ -60,7 +60,7 @@ public class Actors {
 	 * 
 	 * @return list of actors fetched from database table.
 	 */
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	@RequestMapping(value = "list", method = RequestMethod.GET)
 	public List<Actor> getActors() {
 		return actors.stream()
 				.collect(
@@ -78,7 +78,7 @@ public class Actors {
 	 * 
 	 * @param jsonData JSON data as string from client side.
 	 */
-	@RequestMapping(value = "/insert", method = RequestMethod.POST)
+	@RequestMapping(value = "/actors/insert", method = RequestMethod.POST)
 	public void insertActor(@RequestBody String jsonData) {
 		try {
 			JsonNode jsonObject = new ObjectMapper()
