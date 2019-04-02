@@ -19,7 +19,10 @@ export class AddActorComponent implements OnInit {
   }
   onAddActor(form:NgForm){
     if(form.valid){
-      this.service.addActor(form.value.actorID,form.value.actorFName,form.value.actorSurname,form.value.actorImage).subscribe();
+      this.service.addActor(form.value.actorID,form.value.actorFName,form.value.actorSurname)
+      .subscribe(()=>{
+        console.log("Actor inserted.")
+      });
       console.log(form.value);
       form.resetForm();
       } else {

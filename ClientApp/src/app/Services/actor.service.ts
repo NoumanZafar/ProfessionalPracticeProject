@@ -44,15 +44,21 @@ _handleReaderLoaded(readerEvt) {
        //console.log(btoa(this.base64textString));
 }
 
-addActor(actorID: any,actorFName: any,actorSurname: any, picture: any){
-  const actor =[{"actorID": actorID, "actorFname": actorFName, "actorSurname": actorSurname, picture:this.base64textString}];
+addActor(actorID,actorFName,actorSurname){
+  const actor = [{
+    "actorID" : actorID, 
+    "actorFname" : actorFName, 
+    "actorSurname" : actorSurname, 
+    "picture" : this.base64textString
+  }];
   
   let headers: HttpHeaders=new HttpHeaders({'Content-Type':'application/json; charset=UTF-8'});
   console.log(actor)
 
   return this.http.post(`${this.uri}/actors/insert`, actor,{
-    headers:headers});
+    headers:headers
+  });
 
-}
+  }
 }
   
