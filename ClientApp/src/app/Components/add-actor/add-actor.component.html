@@ -1,20 +1,20 @@
 <mat-card class="mat-card-pos">
-  <form (submit)="onAddActor(actorForm)" #actorform="ngForm">
+  <form (submit)="onAddActor(actorForm)" #actorForm="ngForm">
       <h3 align = "center">Add Actor to Database</h3>
 
     <mat-form-field>
-    <input matInput type="text" name="actorID" ngModel required maxlength="3" #MOVIE_ID="ngModel" 
+    <input matInput type="text" name="actorID" ngModel required maxlength="2" #actorID="ngModel" 
     placeholder="Actor ID">
   </mat-form-field>
 
   <mat-form-field>
-      <input matInput rows="2" name="actorFName" ngModel required #content="ngModel" placeholder="First Name">
+      <input matInput rows="2" name="actorFName" ngModel required #actorFName="ngModel" placeholder="First Name">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput rows="2" name="actorSurname" ngModel required #content="ngModel" placeholder="Surname">
+      <input matInput rows="2" name="actorSurname" ngModel required #actorSurname="ngModel" placeholder="Surname">
     </mat-form-field>
-      <input type="file" (change)="onFileSelected($event)" #picture>
+      <input type="file" (change)="onFileSelected($event)"#actorImage>
   
     <button mat-raised-button color="primary" type="submit">Submit</button>
 

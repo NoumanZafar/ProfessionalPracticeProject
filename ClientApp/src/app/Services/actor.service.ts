@@ -50,7 +50,7 @@ addActor(actorID: any,actorFName: any,actorSurname: any, picture: any){
   let headers: HttpHeaders=new HttpHeaders({'Content-Type':'application/json; charset=UTF-8'});
   console.log(actor)
 
-  return this.http.post(`${this.uri}/actors/insertActor`, actor,{
+  return this.http.post(`${this.uri}/actors/insert`, actor,{
     headers:headers});
 
 }
