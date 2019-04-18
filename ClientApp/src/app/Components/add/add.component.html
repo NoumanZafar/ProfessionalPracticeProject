@@ -1,40 +1,36 @@
 <mat-card class="mat-card-pos">
-  <form (submit)="onAddMovie(movieForm)" #movieform="ngForm">
+  <form (submit)="onAddMovie(movieForm)" #movieForm="ngForm">
       <h3 align = "center">Add Movie to Database</h3>
 
+
     <mat-form-field>
-    <input matInput type="text" name="MOVIE_ID" ngModel required maxlength="3" #MOVIE_ID="ngModel" 
+    <input matInput type="text" name="movieID" ngModel required maxlength="3" #movieID="ngModel" 
     placeholder="Movie ID">
-    <mat-error *ngIf= "MOVIE_ID.invalid">Please enter a valid Movie Id</mat-error>
   </mat-form-field>
 
   <mat-form-field>
-      <input matInput rows="2" name="MOVIE_TITLE" ngModel required #content="ngModel" placeholder="Movie Name">
-      <mat-error *ngIf= "content.invalid">Please enter the Movie Name</mat-error>
+      <input matInput rows="2" name="movieTitle" ngModel required #movieTitle="ngModel" placeholder="Movie Name">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput rows="2" name="MOVIE_DESC" ngModel required #content="ngModel" placeholder="Movie Description">
-      <mat-error *ngIf= "content.invalid">Please enter a Description</mat-error>
+      <input matInput rows="2" name="movieDesc" ngModel required #movieDesc="ngModel" placeholder="Movie Description">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput type="url" name="MOVIE_IMG" ngModel required #content="ngModel" placeholder="Movie Image">
+      <input matInput type="text" name="movieReleaseYear" ngModel required #movieReleaseYear="ngModel" placeholder="Year of Release">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput type="url" name="Trailer" ngModel required #content="ngModel" placeholder="Movie Trailer">
+      <input matInput type="text" name="directorID" ngModel required #directorID="ngModel" placeholder="Director_id">
     </mat-form-field>
 
-    <mat-form-field>
-      <input matInput type="number" name="date" ngModel required #content="ngModel" placeholder="Year of Release">
-    </mat-form-field>
 
-    <mat-form-field>
-      <input matInput type="text" name="Director ID" ngModel required #content="ngModel" placeholder="Director_id">
-    </mat-form-field>
+    <h4>Please select a Movie Image</h4>
+    <input type="file" (change)="onFileSelected($event)"#movieImage>
 
+    <h4>Please select a Movie Trailer</h4>
+    <input type="file" (change)="onFileSelected($event)"#movieTrailer>
+  
     <button mat-raised-button color="primary" type="submit">Submit</button>
-
   </form>
 </mat-card>

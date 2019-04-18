@@ -1,6 +1,5 @@
- <!--Byte array to base64 and then video is onverted in mp4 to play and display on the page.-->
- <mat-card class="card-picture" *ngFor="let movie of movies">
- <mat-video width="200" height="300" controls>
-  <source [src]="'data:video/mp4;base64,'+movie.trailer">
-</mat-video>
-</mat-card>
+<mat-card class="card-picture" *ngFor = 'let movie of movies'  >
+  <mat-video width="200" height="300" controls>
+   <source [src]="'data:video/mp4;base64,'+movie.trailer">
+ </mat-video>
+ </mat-card>

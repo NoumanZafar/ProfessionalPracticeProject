@@ -1,10 +1,10 @@
 export interface Movie{
-    MOVIE_ID : number;
-    MOVIE_TITLE: string;
-    MOVIE_DESC: string;
-    MOVIE_IMG: Blob;
-    TRAILER: Blob;
-    YEAROFRELEASE: number;
-    DIRECTOR_ID: number;
+    movieID : number;
+    movieTitle: string;
+    movieDesc: string;
+    movieImage: any;
+    movieTrailer: any;
+    movieReleaseYear: string;
+    directorID: number;
 
 }
