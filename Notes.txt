@@ -1,0 +1,8 @@
+Writes to movies working but images are not being displayed when being read in view movies component,I checked mine and I can find anything.
+the trailers are fine,i need to sort that display out.
+
+I checked console in developer mode and it is a part of the json, being added. 
+There is a screenshot in this folder here of that(Console Screenshot).
+
+Would you mind whenever you get a chance to just do backend bits for director view and add. Sorry to nag,
+Cheers!
