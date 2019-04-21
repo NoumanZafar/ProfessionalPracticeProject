@@ -6,3 +6,13 @@ There is a screenshot in this folder here of that(Console Screenshot).
 
 Would you mind whenever you get a chance to just do backend bits for director view and add. Sorry to nag,
 Cheers!
+
+
+Update on th Problem
+
+There is no problem in the backend or view (client side). But there is a problem in movie.service.ts (addMovie method) where both
+movieImage and movieTrailer are set to the same string (base64textString). and in html file (add.component.html) movieImage and 
+movieTrailer inputs are calling the same method but set the value to a single variable (base64textString). 
+Easient way to fix this problem is to duplicate the two methods where image or trailer are converted to Base64 string and in
+html file call the seperate methods.
+
