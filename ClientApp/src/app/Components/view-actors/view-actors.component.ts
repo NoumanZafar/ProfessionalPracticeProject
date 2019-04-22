@@ -14,7 +14,6 @@ export class ViewActorsComponent implements OnInit {
 
   constructor(private service: ActorService) { }
 
-  /*Hardcoded json being called from jsonblob(see actorservice)*/
   ngOnInit() {
    this.service.getActorsData().subscribe(data => 
     {

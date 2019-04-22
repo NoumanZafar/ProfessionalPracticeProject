@@ -11,8 +11,6 @@ export class ViewMoviesComponent implements OnInit {
   constructor(private service: MovieService) { }
 
   ngOnInit() {
-    //made changes here this.movies is an array which takes the whole json data not individual column.
-    //so whenever json is being read, read the whole array and store it in the array created here (movies)
     this.service.getMovieData().subscribe(data=>{
       this.movies=data;
     })

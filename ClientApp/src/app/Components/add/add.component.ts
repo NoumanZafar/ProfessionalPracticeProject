@@ -11,12 +11,17 @@ export class AddComponent implements OnInit {
 
   constructor(private service: MovieService) { }
   list:any;
-  public file: File=null;
+  public videofile: File=null;
+  public imgfile: File=null;
 
-  onFileSelected(event){
-    this.service.onFileSelected(event);
+  onImgFileSelected(event){
+    this.service.onImgFileSelected(event);
   }
-
+  
+  onVideoFileSelected(event){
+    this.service.onVideoFileSelected(event);
+  }
+  
   onAddMovie(form: NgForm){
     
     if (form.valid){

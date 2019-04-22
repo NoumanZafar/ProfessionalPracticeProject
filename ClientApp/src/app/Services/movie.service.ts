@@ -11,8 +11,11 @@ import { Observable } from 'rxjs';
     constructor(private http: HttpClient) { }
     uri='http://localhost:8080';
 
-    file:File;
-    base64textString:string;
+   // file:File;
+    videofile:File;
+    imgfile:File;
+    base64ImgTextString:string;
+    base64VideotextString:string;
     binaryString:string;
     sendData:string;
 
@@ -22,27 +25,41 @@ import { Observable } from 'rxjs';
     getMovieData(): Observable<any> {
       return this.http.get(`${this.uri}/movies/list`);
   }
-  onFileSelected(event){
+  onVideoFileSelected(event){
     var files=event.target.files;
-    this.file=files[0];
-    if(files && this.file){
+    this.videofile=files[0];
+    if(files && this.videofile){
       var reader=new FileReader();
       reader.onload=this._handleReaderLoaded.bind(this);
-      reader.readAsBinaryString(this.file);
+      reader.readAsBinaryString(this.videofile);
     }
   }
   _handleReaderLoaded(readerEvt) {
     this.binaryString = readerEvt.target.result;
-    this.base64textString= btoa(this.binaryString);
-
+    this.base64VideotextString= btoa(this.binaryString);
   }
+
+  onImgFileSelected(event){
+    var files=event.target.files;
+    this.imgfile=files[0];
+    if(files && this.imgfile){
+      var reader=new FileReader();
+      reader.onload=this._handleImgReaderLoaded.bind(this);
+      reader.readAsBinaryString(this.imgfile);
+    }
+  }
+  _handleImgReaderLoaded(readerEvt) {
+    this.binaryString = readerEvt.target.result;
+    this.base64ImgTextString= btoa(this.binaryString);
+  }
+
   addMovie(movieID,movieTitle,movieDesc,movieReleaseYear,directorID){
     const movie= [{
       "movieID":  movieID,
       "movieTitle": movieTitle,
       "movieDesc": movieDesc,
-      "movieImage": this.base64textString,
-      "movieTrailer": this.base64textString,
+      "movieImage": this.base64ImgTextString,
+      "movieTrailer": this.base64VideotextString,
       "movieReleaseYear": movieReleaseYear,
       "directorID": directorID
     }];

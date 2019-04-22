@@ -23,6 +23,7 @@ import { ViewActorsComponent } from './Components/view-actors/view-actors.compon
 import { ViewMoviesComponent } from './Components/view-movies/view-movies.component';
 import { MatVideoModule } from 'mat-video';
 import { TrailerComponent } from './Components/trailer/trailer.component';
+import { ViewDirectorComponent } from './Components/view-director/view-director.component';
 
 
 //Routing for the Component paths.
@@ -73,7 +74,8 @@ component: TrailerComponent
     HomeComponent,
     ViewActorsComponent,
     ViewMoviesComponent,
-    TrailerComponent
+    TrailerComponent,
+    ViewDirectorComponent
   ],
   imports: [
     BrowserModule,
@@ -102,7 +104,9 @@ component: TrailerComponent
     MatVideoModule
     
   ],
-  providers: [MovieService,ActorService],
+  providers:
+   [
+  MovieService,ActorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

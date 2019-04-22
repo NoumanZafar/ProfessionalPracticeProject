@@ -1,6 +1,6 @@
-
+npm install -g @angular/cli
 npm install @angular/flex-layout@latest –save
-npm install --save @angular/material @angular/cdk 
+np 
 npm install --save hammerjs
 npm i @angular/animations    
 OR

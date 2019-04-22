@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { Actor} from '../Models/actor.model';
 import { Observable } from 'rxjs';
-import { Binary } from 'selenium-webdriver/firefox';
-import { utf8Encode } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +38,7 @@ export class ActorService {
 _handleReaderLoaded(readerEvt) {
        this.binaryString = readerEvt.target.result;
        this.base64textString= btoa(this.binaryString);
-       //console.log(btoa(this.base64textString));
+     
 }
 
 addActor(actorID,actorFName,actorSurname){
