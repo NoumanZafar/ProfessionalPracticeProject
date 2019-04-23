@@ -3,6 +3,7 @@ package com.gmit.backend;
 import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -129,5 +130,38 @@ public class Movies {
 		return Base64
 				.getMimeDecoder()
 				.decode(base64String);
+	}
+	
+	@RequestMapping(value = "delete", method = RequestMethod.POST)
+	public void deleteMovie(@RequestBody String jsonData) {
+		try {
+			/**
+			 * String is converted into JSON data and the JSON object is created
+			 */
+			JsonNode jsonObject = new ObjectMapper()
+					.readTree(jsonData);
+			/*
+			movie.stream()
+				 .filter(Movie
+						 .MOVIE_ID
+						 .equalIgnoreCase(jsonObject
+							.findValue("movieID")
+							.asText()))
+				.forEach(movie.remover());*/
+			
+			Optional<Movie> delete = movie.stream()
+					.filter(Movie
+							.MOVIE_ID
+							.equalIgnoreCase(jsonObject
+							.findValue("movieID")
+							.asText()))
+					.findFirst();
+			delete.ifPresent(
+					id -> movie
+					.remove(id));
+
+		} catch (final SpeedmentException | IOException ex) {
+			ex.printStackTrace();
+		}
 	}
 }
