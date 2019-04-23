@@ -3,6 +3,7 @@ package com.gmit.backend;
 import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,6 +16,7 @@ import com.company.movies.MoviesApplication;
 import com.company.movies.database.movies.actor.Actor;
 import com.company.movies.database.movies.actor.ActorImpl;
 import com.company.movies.database.movies.actor.ActorManager;
+import com.company.movies.database.movies.movie.Movie;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.speedment.runtime.core.exception.SpeedmentException;
@@ -118,5 +120,38 @@ public class Actors {
 		return Base64
 				.getMimeDecoder()
 				.decode(base64String);
+	}
+	
+	@RequestMapping(value = "delete", method = RequestMethod.POST)
+	public void deleteMovie(@RequestBody String jsonData) {
+		try {
+			/**
+			 * String is converted into JSON data and the JSON object is created
+			 */
+			JsonNode jsonObject = new ObjectMapper()
+					.readTree(jsonData);
+			/*
+			actors.stream()
+				 .filter(Actor
+						 .ACTOR_ID
+						 .equalIgnoreCase(jsonObject
+							.findValue("actorID")
+							.asText()))
+				.forEach(actors .remover());*/
+			
+			Optional<Actor> delete = actors.stream()
+					.filter(Actor
+							.ACTOR_ID
+							.equalIgnoreCase(jsonObject
+							.findValue("actorID")
+							.asText()))
+					.findFirst();
+			delete.ifPresent(
+					id -> actors
+					.remove(id));
+
+		} catch (final SpeedmentException | IOException ex) {
+			ex.printStackTrace();
+		}
 	}
 }
