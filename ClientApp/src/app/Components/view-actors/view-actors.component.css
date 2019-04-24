@@ -1,15 +1,33 @@
-.table {
-  width: 50%;
-  border: 5px solid grey;
-  border-collapse: collapse;
-  padding: 5px;
-  background-color: rgba(128,128,128, .5);
-  text-align: center;
-  color: black;
-  font-weight: bolder;
-  margin-left: auto;
-  margin-right: auto;
-  text-shadow: steelblue;
+
+.background{
+  background-color: transparent;
+}
+.img { 
+    margin-bottom: 18%;
+
+  }
+  .card-picture {
+    background-color:rgba(191, 85, 236, 0.7);
+    width: auto;
+    margin-bottom: 2%;
+    font-weight: bolder;
+    color: silver;
+ 
+
+  }
+  .container {
+    min-height: 100%;
+    width: 100%;
+    align-items: center;
+
+  }
+  .search-form {
+    width: 100%;
+  }
+  .toolbar-icon {
+    padding: 0 14px;
+  }
   
-    
+  .toolbar-spacer {
+    flex: 1 1 auto;
   }

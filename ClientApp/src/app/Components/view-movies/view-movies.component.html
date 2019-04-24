@@ -1,7 +1,11 @@
+<ngx-spinner></ngx-spinner>
 <div class="background" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="1.0%" fxLayoutAlign="center">   
     <mat-card class="card-picture" *ngFor="let movie of movies">
         <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
-        <span fxFlex="100%">{{movie.movieTitle}}</span>
+        <span fxFlex="85%">{{movie.movieTitle}}</span>
+      <!-- <button (click) = "onDeleteMovie(movie._id)" fxFlex = 15%>Delete</button> --> 
+      <button (click) = "onDeleteMovie(movie._movieID)" fxFlex = 15%>Delete</button>
+      <!--<button (click) = "onDeleteMovie(movie.movieID)" fxFlex = 15%>Delete</button>-->
         </mat-card-title>
         <img mat-card-image [src]="'data:image/JPEG;base64,' + movie.movieImg"/>
         <h5>{{movie.movieDesc}}</h5> 

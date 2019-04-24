@@ -1,18 +1,10 @@
-Writes to movies working but images are not being displayed when being read in view movies component,I checked mine and I can find anything.
-the trailers are fine,i need to sort that display out.
+I was doing deletes trying many many different ways with the headers/http headers but I am getting CORS errors for both movies and actors.
+This is the error and no matter what I try it is the same error. I have tried http.delete/ http.post and am still getting this error for both.
 
-I checked console in developer mode and it is a part of the json, being added. 
-There is a screenshot in this folder here of that(Console Screenshot).
-
-Would you mind whenever you get a chance to just do backend bits for director view and add. Sorry to nag,
-Cheers!
+Access to XMLHttpRequest at 'http://localhost:8080/movies/delete/undefined' from origin 'http://localhost:4200' has been blocked by CORS policy: 
+Response to preflight request doesn't pass access control check: 
+No 'Access-Control-Allow-Origin' header is present on the requested resource.
 
 
-Update on th Problem
 
-There is no problem in the backend or view (client side). But there is a problem in movie.service.ts (addMovie method) where both
-movieImage and movieTrailer are set to the same string (base64textString). and in html file (add.component.html) movieImage and 
-movieTrailer inputs are calling the same method but set the value to a single variable (base64textString). 
-Easient way to fix this problem is to duplicate the two methods where image or trailer are converted to Base64 string and in
-html file call the seperate methods.
 

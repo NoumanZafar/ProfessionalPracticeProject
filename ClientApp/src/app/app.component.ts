@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -11,6 +12,8 @@ import { map } from 'rxjs/operators';
 })
 export class AppComponent {
   title = 'Movie Database';
+
+  
 
 
 }

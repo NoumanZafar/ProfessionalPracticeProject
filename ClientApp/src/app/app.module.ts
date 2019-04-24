@@ -7,8 +7,9 @@ import { AppComponent } from './app.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule,MatInputModule, MatToolbarModule, MatButtonModule,
   MatTableModule, MatCardModule,MatSidenavModule, MatListModule,MatPaginatorModule,
-  MatSortModule, MatProgressSpinnerModule,MatExpansionModule,MatMenuModule} from '@angular/material';
+  MatSortModule,MatExpansionModule,MatMenuModule} from '@angular/material';
 import {MatDividerModule} from '@angular/material/divider'
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { LayoutModule } from '@angular/cdk/layout';
 import { SearchComponent } from './Components/search/search.component';
 import { AddComponent } from './Components/add/add.component';
@@ -97,7 +98,7 @@ component: TrailerComponent
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatProgressSpinnerModule,
+    NgxSpinnerModule,
     HttpClientModule,
     MatExpansionModule,
     MatMenuModule,

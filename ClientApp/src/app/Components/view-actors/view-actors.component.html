@@ -1,21 +1,10 @@
-<table class="table">
-  <thead>
-    <tr>
-      <td>FIRST-NAME</td>
-      <td>SURNAME</td>
-      <td>Image</td>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr *ngFor = 'let actor of actors'>
-      <td>{{actor.firstName}}</td>
-      <td>{{actor.surname}}</td>
-      <td>
-        <!--Image is taken as byte array and change to base64 and then a image is displayed.-->
-        <img [src]="'data:image/JPEG;base64,' + actor.picture" width="250" height="200" />      
-      </td>
-      
-    </tr>
-  </tbody>
-</table>
+<div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="32px" fxLayoutAlign="center">
+  <mat-card class="card-picture" *ngFor="let actor of actors" >
+    <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column" >
+      <span fxFlex="85%">{{actor.firstName}} {{ actor.surname}}</span>
+     <button (click) = "onDeleteActor(actor._actorID)" fxFlex = 15%>Delete</button>
+     <!-- <button (click) = "onDeleteActor(actor.actorID)" fxFlex = 15%>Delete</button> -->
+      </mat-card-title>
+    <img class="img" [src]="'data:image/JPEG;base64,' + actor.picture" width="250" height="200" />      
+  </mat-card>
+</div>

@@ -1,34 +1,8 @@
 npm install -g @angular/cli
-npm install @angular/flex-layout@latest –save
-np 
-npm install --save hammerjs
-npm i @angular/animations    
-OR
 npm i @angular/animations@latest --save
-npm i tslib   (I had to put this in as it request this dependancy for the above)
-
+npm install @angular/flex-layout@latest –save 
+npm install --save hammerjs
 npm install --save mat-video
-
-
-DATABASE queries for the display's in angular:(Just actor and movie for the moment)
-
-I don't know if PK OR fk should be displayed maybe a link or a button to the director when i can this bit working properly. 
-
-**Movie to display in ViewMovies Component**
-SELECT MOVIE_TITLE,MOVIE_DESC,MOVIE_IMG,TRAILER,YEAROFRELEASE from Movie;
-
-#Example query for insert, (I put captain marvel poster and trailer are in the posters_and_trailers folder).
-INSERT INTO MOVIE(MOVIE_ID,MOVIE_TITLE,MOVIE_DESC,MOVIE_IMG,TRAILER,YEAROFRELEASE,DIRECTOR_ID VALUES '6','Captain Marvel','Carol Danvers becomes one of the universe's most powerful heroes when Earth is caught in the middle of a galactic war between two alien races.',
-LOAD_FILE(C:/posters_and_trailers/captainMarvel.jpg),LOAD_FILE("C:/posters_and_trailers/captain-marvel-trailer.mp4"),'2019',7);
-
-**Actor to display in ViewActor Component** I will adjust the angular bit to include image for actor(I don't think there is any need to display PK)
-**I added in an actor image field for this query here,I put the actors images in the Actors folder in project**
-SELECT FIRST_NAME,SURNAME,ACTOR_IMG FROM ACTOR;
-
-INSERT INTO ACTOR (ACTOR_ID,FIRST_NAME,SURNAME,ACTOR_IMG) VALUES ('34','Brie','Larson',LOAD_FILE("C:/actors/brielarson.jpg));
-INSERT INTO ACTOR (ACTOR_ID,FIRST_NAME,SURNAME,ACTOR_IMG) VALUES ('35','Samuel','L Jackson',LOAD_FILE("C:/actors/samuelljackson.jpg));
-
-
-
+npm install ngx-spinner --save
 
 
