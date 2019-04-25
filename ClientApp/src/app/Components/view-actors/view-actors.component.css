@@ -7,7 +7,7 @@
 
   }
   .card-picture {
-    background-color:rgba(191, 85, 236, 0.7);
+    background-color: transparent;
     width: auto;
     margin-bottom: 2%;
     font-weight: bolder;

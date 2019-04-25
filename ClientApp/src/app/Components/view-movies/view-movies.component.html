@@ -1,16 +1,21 @@
 <ngx-spinner></ngx-spinner>
-<div class="background" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="1.0%" fxLayoutAlign="center">   
-    <mat-card class="card-picture" *ngFor="let movie of movies">
-        <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
-        <span fxFlex="85%">{{movie.movieTitle}}</span>
-      <!-- <button (click) = "onDeleteMovie(movie._id)" fxFlex = 15%>Delete</button> --> 
-      <button (click) = "onDeleteMovie(movie._movieID)" fxFlex = 15%>Delete</button>
-      <!--<button (click) = "onDeleteMovie(movie.movieID)" fxFlex = 15%>Delete</button>-->
-        </mat-card-title>
-        <img mat-card-image [src]="'data:image/JPEG;base64,' + movie.movieImg"/>
-        <h5>{{movie.movieDesc}}</h5> 
-        <h5>{{yearofrelease}}</h5>
-        <a mat-list-item [routerLink]="['/Trailers']">View Trailer</a>
-      </mat-card>
-    </div>
-  
+<div class="container">
+    <cdk-virtual-scroll-viewport class="viewport" itemSize="10" >
+       <mat-card class = "mat-card" *cdkVirtualFor= "let movie of movies" >
+          <mat-card-title class ="title" fxLayout.gt-xs="row" fxLayout.xs="column">
+             <span fxFlex="85%">{{movie.movieTitle}}</span>
+             <!-- <button fxFlex = 15% (click) = "onDeleteMovie(movie._id)">Delete</button> -->
+             <!-- <button (click) = "onDeleteMovie(movie._movieID)" fxFlex = 15%>Delete</button> -->
+             <!--<button (click) = "onDeleteMovie(movie.movieID)" fxFlex = 15%>Delete</button>-->
+          </mat-card-title>
+          <mat-card-content>
+             <span class="mat-card-content" fxFlex="50%">{{movie.movieDesc}}</span>
+             <img class="img" fxFlex = 50% mat-card-image [src]="'data:image/JPEG;base64,' + movie.movieImg"/>  
+          </mat-card-content>
+          <mat-video width="200" height="300" controls>
+             <source [src]="'data:video/mp4;base64,'+movie.trailer">
+          </mat-video>
+       </mat-card>
+       <mat-divider></mat-divider>
+    </cdk-virtual-scroll-viewport>
+ </div>

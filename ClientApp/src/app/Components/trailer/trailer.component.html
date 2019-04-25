@@ -1,6 +1,6 @@
-<mat-card class="card-picture" *ngFor = 'let movie of movies'>
-    <mat-video width="200" height="300" controls>
-        <source [src]="'data:video/mp4;base64,'+movie.trailer">
-   </mat-video>
-   </mat-card>
+<mat-card *ngFor = 'let movie of movies'>
+  <mat-video width="200" height="300" controls>
+      <source [src]="'data:video/mp4;base64,'+movie.trailer">
+ </mat-video>
+</mat-card>
    

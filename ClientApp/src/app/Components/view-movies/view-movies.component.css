@@ -1,31 +1,42 @@
-
-.background{
-    background-color: transparent;
-  }
-  .img {
-      width: 50%;
-      margin-bottom: 18%;
-    }
-    .card-picture {
-      background-color:rgba(191, 85, 236, 1);
-      width: 20%;
-      margin-bottom: 2%;
-      font-weight: bolder;
-      color: white;
+.viewport{
+  height: 600px;
+  width: 600px;
+  padding-left: 20%;
+  padding-right: 20%;
   
-    }
-    .container {
-      min-height: 100%;
-      width: 100%;
-    }
-    .search-form {
-      width: 100%;
-    }
-    .toolbar-icon {
-      padding: 0 14px;
-    }
-    
-    .toolbar-spacer {
-      flex: 1 1 auto;
-    }
+}
+.mat-card {
+margin: 2em;
+background-color: transparent;
+height: fit-content;
+
+}
+.container {
+  min-height: 100%;
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 10%
+}
+
+.img {
+  height: 400px;
+  padding-left: 1em;
+  margin: auto;
+  width: 200px;
+  
+}
+.mat-card-content{
+  font-size: large;
+  font-weight: bold;
+  padding-top: 5%;
+  color: silver;
+ 
+}
+.title{
+    font-size: larger;
+    font-weight: bolder;
+    text-align: center;
+    background-color: rgba(0, 110, 255, 0.5);
+}
+
   

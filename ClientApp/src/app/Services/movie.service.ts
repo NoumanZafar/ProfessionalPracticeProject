@@ -74,7 +74,7 @@
 
   deleteMovie(movieID: String): Observable<any>{
       let headers: HttpHeaders=new HttpHeaders({'Content-Type':'application/json; charset=UTF-8'});
-      return this.http.post(`${this.uri}/movies/delete/`+ movieID,{
+      return this.http.delete(`${this.uri}/movies/delete/`+ movieID,{
         headers:headers
        });
     }

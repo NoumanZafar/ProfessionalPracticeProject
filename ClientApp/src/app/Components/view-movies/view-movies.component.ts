@@ -18,7 +18,7 @@ export class ViewMoviesComponent implements OnInit {
       setTimeout(() => {
           /** spinner ends after 15 seconds ,ADJUST THIS LATER*/
           this.spinner.hide();
-      }, 15000);
+      }, 10000);
     
     this.service.getMovieData().subscribe(data=>{
       this.movies=data;

@@ -12,8 +12,15 @@ import { map } from 'rxjs/operators';
 })
 export class AppComponent {
   title = 'Movie Database';
+  numbers: number[] = [];
 
-  
+
+  constructor() {
+    for (let index = 0; index < 10000; index++) {
+      this.numbers.push(index);
+    }
+}
+
 
 
 }

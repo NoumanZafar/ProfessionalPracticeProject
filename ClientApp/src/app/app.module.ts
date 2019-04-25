@@ -11,7 +11,6 @@ import {MatFormFieldModule,MatInputModule, MatToolbarModule, MatButtonModule,
 import {MatDividerModule} from '@angular/material/divider'
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LayoutModule } from '@angular/cdk/layout';
-import { SearchComponent } from './Components/search/search.component';
 import { AddComponent } from './Components/add/add.component';
 import { MovieService } from './Services/movie.service';
 import { FormsModule} from '@angular/forms';
@@ -19,20 +18,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddActorComponent } from './Components/add-actor/add-actor.component';
 import { ActorService } from './Services/actor.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { HomeComponent } from './Components/home/home.component';
 import { ViewActorsComponent } from './Components/view-actors/view-actors.component';
 import { ViewMoviesComponent } from './Components/view-movies/view-movies.component';
 import { MatVideoModule } from 'mat-video';
 import { TrailerComponent } from './Components/trailer/trailer.component';
 import { ViewDirectorComponent } from './Components/view-director/view-director.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 
 //Routing for the Component paths.
 const appRoutes: Routes =[
-  {
-    path: 'search',
-    component: SearchComponent
-  },
+
   {
   path: 'add',
   component: AddComponent
@@ -40,11 +36,6 @@ const appRoutes: Routes =[
   {
     path: 'addActor',
     component: AddActorComponent
-  },
-  {
-    //Change path when to homepage when done
-    path: 'home',
-    component: HomeComponent
   },
   {
     //Change path when to homepage when done
@@ -69,10 +60,8 @@ component: TrailerComponent
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent,
     AddComponent,
     AddActorComponent,
-    HomeComponent,
     ViewActorsComponent,
     ViewMoviesComponent,
     TrailerComponent,
@@ -102,7 +91,9 @@ component: TrailerComponent
     HttpClientModule,
     MatExpansionModule,
     MatMenuModule,
-    MatVideoModule
+    MatVideoModule,
+    ScrollingModule,
+    
     
   ],
   providers:
