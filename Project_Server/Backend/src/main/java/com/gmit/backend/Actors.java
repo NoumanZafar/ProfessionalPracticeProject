@@ -122,7 +122,8 @@ public class Actors {
 				.decode(base64String);
 	}
 	
-	@RequestMapping(value = "delete", method = RequestMethod.POST)
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	@CrossOrigin("*")
 	public void deleteMovie(@RequestBody String jsonData) {
 		try {
 			/**
