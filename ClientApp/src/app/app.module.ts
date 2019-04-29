@@ -22,8 +22,8 @@ import { ViewActorsComponent } from './Components/view-actors/view-actors.compon
 import { ViewMoviesComponent } from './Components/view-movies/view-movies.component';
 import { MatVideoModule } from 'mat-video';
 import { TrailerComponent } from './Components/trailer/trailer.component';
-import { ViewDirectorComponent } from './Components/view-director/view-director.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 //Routing for the Component paths.
@@ -65,7 +65,6 @@ component: TrailerComponent
     ViewActorsComponent,
     ViewMoviesComponent,
     TrailerComponent,
-    ViewDirectorComponent
   ],
   imports: [
     BrowserModule,
@@ -93,6 +92,7 @@ component: TrailerComponent
     MatMenuModule,
     MatVideoModule,
     ScrollingModule,
+    MatSnackBarModule
     
     
   ],

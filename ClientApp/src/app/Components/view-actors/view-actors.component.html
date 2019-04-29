@@ -2,7 +2,9 @@
   <mat-card class="card-picture" *ngFor="let actor of actors" >
     <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column" >
       <span fxFlex="85%">{{actor.firstName}} {{ actor.surname}}</span>
-     <button (click) = "onDeleteActor(actor._actorID)" fxFlex = 15%>Delete</button>
+     <!--button (click) = "onDeleteActor(actor._actorID)" fxFlex = 15%>Delete</button>-->
+     <button mat-icon-button (click) = "onDeleteActor(1)" fxFlex = 15% >
+      <mat-icon class = "toolbar-icon">delete</mat-icon></button>
      <!-- <button (click) = "onDeleteActor(actor.actorID)" fxFlex = 15%>Delete</button> -->
       </mat-card-title>
     <img class="img" [src]="'data:image/JPEG;base64,' + actor.picture" width="250" height="200" />      

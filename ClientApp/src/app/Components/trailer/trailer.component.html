@@ -1,5 +1,7 @@
-<mat-card *ngFor = 'let movie of movies'>
-  <mat-video width="200" height="300" controls>
+<ngx-spinner></ngx-spinner>
+
+<mat-card *ngFor = 'let movie of movies; let i=index'>
+  <mat-video [fullscreen]="true" spinner="spin" width="200" height="350" controls>
       <source [src]="'data:video/mp4;base64,'+movie.trailer">
  </mat-video>
 </mat-card>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MovieService} from '../../Services/movie.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
+
 @Component({
   selector: 'app-view-movies',
   templateUrl: './view-movies.component.html',
@@ -18,7 +19,7 @@ export class ViewMoviesComponent implements OnInit {
       setTimeout(() => {
           /** spinner ends after 15 seconds ,ADJUST THIS LATER*/
           this.spinner.hide();
-      }, 10000);
+      }, 7000);
     
     this.service.getMovieData().subscribe(data=>{
       this.movies=data;
@@ -29,6 +30,14 @@ export class ViewMoviesComponent implements OnInit {
     this.service.deleteMovie(movieID).subscribe(() =>{
       this.ngOnInit;
     });
+  }
+
+    viewMovie(){
+      this.service.getMovieData().subscribe(data=>{
+        this.movies=data;
+      });
+
+
 
 
   /*onDeleteMovie(movieID: string){

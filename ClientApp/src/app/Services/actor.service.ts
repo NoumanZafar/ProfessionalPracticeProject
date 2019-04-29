@@ -60,13 +60,36 @@ import { Actor } from '../Models/director.model';
     });
 
     }
+    
+    deleteActor(actorID){
+      const actor = [{
+        "actorID" : actorID
+      }];
+      
+      let headers: HttpHeaders=new HttpHeaders({'Content-Type':'application/json; charset=UTF-8'});
+      console.log(actor)
+  
+      return this.http.post(`${this.uri}/actors/delete`, actor,{
+        headers:headers
+      });
+  
+      }
+  
+/*
+  deleteActor(actorID:any){
+    let headers: HttpHeaders=new HttpHeaders({'Content-Type':'application/json; charset=UTF-8'});
+    headers.append('X-Requested-With', 'XMLHttpRequest');
+    return this.http.post(`${this.uri}/actors/delete`+actorID,{ responseType: 'json' });
 
-    deleteActor(actorID: String): Observable<any>{
+  }*/
+}
+
+   /* deleteActor(actorID: String): Observable<any>{
        let headers: Headers = new Headers({'Content-Type':'application/json; charset=UTF-8'});
      // let headers: HttpHeaders=new HttpHeaders({'Content-Type':'application/json; charset=UTF-8'});
-      // headers.append('Content-Type', 'application/json');
-      // headers.append('X-Requested-With', 'XMLHttpRequest');
-      return this.http.delete(`${this.uri}/actors/delete/`+ actorID);
+         headers.append('Content-Type', 'application/json');
+         headers.append('X-Requested-With', 'XMLHttpRequest');
+      return this.http.delete(`${this.uri}/actors/delete/${actorID}`,{ responseType: 'text' });*/
     
     //DELETE ACTOR
     //deleteActor(actorID): Observable<any>{
@@ -75,5 +98,5 @@ import { Actor } from '../Models/director.model';
      //   headers: headersDelete
          
       //});
-    } 
-  }
+    
+  
